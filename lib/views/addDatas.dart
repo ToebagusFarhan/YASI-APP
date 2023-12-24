@@ -18,7 +18,7 @@ class _AddDataState extends State<AddData> {
         toolbarHeight: 100,
         leading: IconButton(
           icon: Image.asset(
-            'images/Previous.png',
+            'assets/images/previous.png',
             width: 34,
             height: 44,
           ),
@@ -269,17 +269,12 @@ class _AddDataState extends State<AddData> {
               BottomNavigationBarItem(
                 icon: IconButton(
                   icon: Image.asset(
-                    'images/Home.png',
+                    'assets/images/Home.png',
                     width: 58,
                     height: 55,
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              const HomePage()), // ke HOME PAGE
-                    );
+                    Navigator.pushNamed(context, '/homepage');
                   },
                 ),
                 label: 'Home',
@@ -287,7 +282,7 @@ class _AddDataState extends State<AddData> {
               BottomNavigationBarItem(
                 icon: IconButton(
                   icon: Image.asset(
-                    'images/Logbook.png',
+                    'assets/images/Logbook.png',
                     width: 58,
                     height: 55,
                   ),
@@ -304,17 +299,13 @@ class _AddDataState extends State<AddData> {
               BottomNavigationBarItem(
                 icon: IconButton(
                   icon: Image.asset(
-                    'images/Add.png',
+                    'assets/images/Add.png',
                     width: 58,
                     height: 55,
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              const AddData()), // ke ADD DATA PAGE
-                    );
+                    print('clicked');
+                    // Navigator.pushNamed(context, '/signalinfo');
                   },
                 ),
                 label: 'Add Data',

@@ -16,11 +16,11 @@ class _Homeviewstate extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFD1ECFF),
+        backgroundColor: const Color(0xFFD1ECFF),
         leading: Container(
           child: IconButton(
             icon: Image.asset(
-              'images/Previous.png',
+              'assets/images/previous.png',
               width: 34,
               height: 44,
             ),
@@ -38,7 +38,7 @@ class _Homeviewstate extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              child: Text(
+              child: const Text(
                 'Yet Another Signal Info',
                 style: TextStyle(
                     color: Colors.black,
@@ -59,11 +59,11 @@ class _Homeviewstate extends State<HomePage> {
               children: [
                 const SizedBox(height: 30),
                 Container(
-                  padding: EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(16.0),
                   width: 299,
                   height: 135,
                   decoration: ShapeDecoration(
-                    color: Color(0xFFFBAA36),
+                    color: const Color(0xFFFBAA36),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
@@ -79,7 +79,7 @@ class _Homeviewstate extends State<HomePage> {
                           height: 73,
                         ),
                         //text nameuser, provider
-                        Column(
+                        const Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
@@ -102,7 +102,8 @@ class _Homeviewstate extends State<HomePage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => UpdateProfile()),
+                                      builder: (context) =>
+                                          const UpdateProfile()),
                                 );
                               },
                               child: Container(
@@ -122,16 +123,16 @@ class _Homeviewstate extends State<HomePage> {
                 const SizedBox(height: 40),
                 //container provider 1
                 Container(
-                  padding: EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(16.0),
                   width: 270,
                   height: 100,
                   decoration: ShapeDecoration(
-                    color: Color(0xFFFF8DB6),
+                    color: const Color(0xFFFF8DB6),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                     shadows: [
-                      BoxShadow(
+                      const BoxShadow(
                           color: Color(0x3F000000),
                           blurRadius: 4,
                           offset: Offset(0, 4),
@@ -150,12 +151,12 @@ class _Homeviewstate extends State<HomePage> {
                           height: 40,
                         ),
                         //text provider 1
-                        Text(
+                        const Text(
                           'Telkomsel',
                           style: TextStyle(fontFamily: 'Poppins', fontSize: 15),
                         ),
                         const SizedBox(width: 0),
-                        Text(
+                        const Text(
                           'Bagus',
                           style: TextStyle(
                               fontFamily: 'Poppins',
@@ -169,16 +170,16 @@ class _Homeviewstate extends State<HomePage> {
                 const SizedBox(height: 20),
                 //container provider 2
                 Container(
-                  padding: EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(16.0),
                   width: 270,
                   height: 100,
                   decoration: ShapeDecoration(
-                    color: Color(0xFF55C2FD),
+                    color: const Color(0xFF55C2FD),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                     shadows: [
-                      BoxShadow(
+                      const BoxShadow(
                           color: Color(0x3F000000),
                           blurRadius: 4,
                           offset: Offset(0, 4),
@@ -197,12 +198,12 @@ class _Homeviewstate extends State<HomePage> {
                           height: 40,
                         ),
                         //text provider 2
-                        Text(
+                        const Text(
                           'Indosat',
                           style: TextStyle(fontFamily: 'Poppins', fontSize: 15),
                         ),
                         const SizedBox(width: 30),
-                        Text(
+                        const Text(
                           'Bagus',
                           style: TextStyle(
                               fontFamily: 'Poppins',
@@ -216,16 +217,16 @@ class _Homeviewstate extends State<HomePage> {
                 const SizedBox(height: 20),
                 //container provider 3
                 Container(
-                  padding: EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(16.0),
                   width: 270,
                   height: 100,
                   decoration: ShapeDecoration(
-                    color: Color(0xFFBDC0CE),
+                    color: const Color(0xFFBDC0CE),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
                     shadows: [
-                      BoxShadow(
+                      const BoxShadow(
                           color: Color(0x3F000000),
                           blurRadius: 4,
                           offset: Offset(0, 4),
@@ -244,12 +245,12 @@ class _Homeviewstate extends State<HomePage> {
                           height: 40,
                         ),
                         //text provider 3
-                        Text(
+                        const Text(
                           'XL',
                           style: TextStyle(fontFamily: 'Poppins', fontSize: 15),
                         ),
                         const SizedBox(width: 30),
-                        Text(
+                        const Text(
                           'Bagus',
                           style: TextStyle(
                               fontFamily: 'Poppins',
@@ -294,17 +295,14 @@ class _Homeviewstate extends State<HomePage> {
               BottomNavigationBarItem(
                 icon: IconButton(
                   icon: Image.asset(
-                    'images/Home.png',
+                    'assets/images/Home.png',
                     width: 58,
                     height: 55,
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              const HomePage()), // ke HOME PAGE
-                    );
+                    print('clicked');
+                    Navigator.pushNamed(context, '/homepage');
+                    print('navigator passed');
                   },
                 ),
                 label: 'Home',
@@ -312,16 +310,12 @@ class _Homeviewstate extends State<HomePage> {
               BottomNavigationBarItem(
                 icon: IconButton(
                   icon: Image.asset(
-                    'images/Logbook.png',
+                    'assets/images/Logbook.png',
                     width: 58,
                     height: 55,
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SignalInfo()),
-                    );
+                    Navigator.pushNamed(context, '/signalinfo');
                   },
                 ),
                 label: 'Signal Info',
@@ -329,17 +323,12 @@ class _Homeviewstate extends State<HomePage> {
               BottomNavigationBarItem(
                 icon: IconButton(
                   icon: Image.asset(
-                    'images/Add.png',
+                    'assets/images/Add.png',
                     width: 58,
                     height: 55,
                   ),
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              const AddData()), // ke ADD DATA PAGE
-                    );
+                    Navigator.pushNamed(context, '/adddatas');
                   },
                 ),
                 label: 'Add Data',

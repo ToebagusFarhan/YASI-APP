@@ -17,10 +17,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: HomePage());
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
+      ),
+      routes: {
+        '/': (context) => const HomePage(),
+        '/homepage': (context) => const HomePage(),
+        '/addDatas': (context) => const AddData(),
+        '/detailinfo': (context) => const DetailInfo(),
+        '/signalinfo': (context) => const SignalInfo(),
+        '/updateprofile': (context) => const UpdateProfile()
+      },
+    );
+    // home: HomePage());
   }
 }

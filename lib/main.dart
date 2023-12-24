@@ -1,4 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:yasi_app/views/AddDatas.dart';
+import 'package:yasi_app/views/HomePage.dart';
+import 'package:yasi_app/views/LoginPage.dart';
+import 'package:yasi_app/views/SigninPage.dart';
+import 'package:yasi_app/views/detailinfoPage.dart';
+import 'package:yasi_app/views/UpdateProfilePage.dart';
+import 'package:yasi_app/views/signalinfoPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,22 +14,13 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      routes: {
-        // When navigating to the "/" route, build the FirstScreen widget.
-        
-      },
-      debugShowCheckedModeBanner: false,
-      title: 'Product',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.grey.shade50),
-        useMaterial3: true,
-      ),
-      // home: const (),
-      // home: const ProductScreen(),
-    );
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+        ),
+        home: HomePage());
   }
 }

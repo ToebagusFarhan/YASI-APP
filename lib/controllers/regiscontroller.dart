@@ -38,23 +38,23 @@ Future<void> registerUser(BuildContext context, User newUser) async {
       return;
     }
 
-    // Check if the username already exists
-    final usernameCheckResponse =
-        await http.get(Uri.parse('$url/users/name/${newUser.username}'));
-    if (usernameCheckResponse.statusCode == 200) {
-      dynamic usernameCheckData =
-          json.decode(usernameCheckResponse.body)['data'];
-      if (usernameCheckData.isNotEmpty) {
-        Navigator.pop(context); // Hide loading indicator
-        popUp(
-            'Username ${newUser.username} sudah terdaftar. Gunakan username lain.');
-        return;
-      }
-    } else {
-      Navigator.pop(context); // Hide loading indicator
-      popUp('Gagal memeriksa username. Silakan coba lagi.');
-      return;
-    }
+    // // Check if the username already exists
+    // final usernameCheckResponse =
+    //     await http.get(Uri.parse('$url/users/name/${newUser.username}'));
+    // if (usernameCheckResponse.statusCode == 200) {
+    //   dynamic usernameCheckData =
+    //       json.decode(usernameCheckResponse.body)['data'];
+    //   if (usernameCheckData.isNotEmpty) {
+    //     Navigator.pop(context); // Hide loading indicator
+    //     popUp(
+    //         'Username ${newUser.username} sudah terdaftar. Gunakan username lain.');
+    //     return;
+    //   }
+    // } else {
+    //   Navigator.pop(context); // Hide loading indicator
+    //   popUp('Gagal memeriksa username. Silakan coba lagi.');
+    //   return;
+    // }
 
     // If both email and username are unique, proceed with registration
     final registrationResponse = await http.post(

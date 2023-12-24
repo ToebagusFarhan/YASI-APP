@@ -7,10 +7,11 @@ ElevatedButton(
   onPressed: () {
     // Create a User object with the registration data
     User newUser = User(
-      username: usr.text,
-      password: pwd.text,
-      email: email.text,
-      fullname: fullName.text,
+      email: emailController.text,
+      fullname: fullNameController.text,
+      username: usernameController.text,
+      provider: providerController.text,
+      password: passwordController.text,
       updated_at: '',
       created_at: '',
     );

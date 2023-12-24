@@ -58,12 +58,14 @@ Future<void> registerUser(BuildContext context, User newUser) async {
 
     // If both email and username are unique, proceed with registration
     final registrationResponse = await http.post(
-      Uri.parse('$url/users/register'),
+      Uri.parse('$url/users'),
       body: {
         'email': newUser.email,
         'fullname': newUser.fullname,
         'username': newUser.username,
         'password': newUser.password,
+        // 'created_at': newUser.created_at,
+        // 'updated_at': newUser.updated_at,
       },
     );
 

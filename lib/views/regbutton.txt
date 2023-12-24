@@ -1,0 +1,22 @@
+ElevatedButton(
+  style: ElevatedButton.styleFrom(
+    backgroundColor: Colors.white,
+    foregroundColor: Colors.blue,
+    minimumSize: const Size(120, 45),
+  ),
+  onPressed: () {
+    // Create a User object with the registration data
+    User newUser = User(
+      username: usr.text,
+      password: pwd.text,
+      email: email.text,
+      fullname: fullName.text,
+      updated_at: '',
+      created_at: '',
+    );
+
+    // Call the registerUser function with the User object
+    registerUser(context, newUser);
+  },
+  child: const Text('REGISTER'),
+)

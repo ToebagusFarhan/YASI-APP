@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
-        '/': (context) => const AddDataTest(),
+        '/': (context) => const SignalInfo(),
         '/homepage': (context) => const HomePage(),
         '/addDatas': (context) => const AddData(),
         '/detailinfo': (context) => const DetailInfo(),

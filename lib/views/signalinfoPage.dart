@@ -20,7 +20,7 @@ class _SignalInfoState extends State<SignalInfo> {
         toolbarHeight: 100,
         leading: IconButton(
           icon: Image.asset(
-            'images/Previous.png',
+            'assets/images/previous.png',
             width: 34,
             height: 44,
           ),
@@ -72,25 +72,28 @@ class _SignalInfoState extends State<SignalInfo> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 50),
-              Container(
-                width: 450,
-                height: 42,
-                decoration: ShapeDecoration(
-                  color: const Color(0xFF53C2FF),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
+              Padding(
+                padding: const EdgeInsets.all(7.7),
+                child: Container(
+                  width: 430,
+                  height: 42,
+                  decoration: ShapeDecoration(
+                    color: const Color(0xFF53C2FF),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
                   ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: Text(
-                    'Provinsi',
-                    style: TextStyle(
-                      color: Colors.black.withOpacity(0.5),
-                      fontSize: 15,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w600,
-                      height: 2.8,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Text(
+                      'Provinsi',
+                      style: TextStyle(
+                        color: Colors.black.withOpacity(0.5),
+                        fontSize: 15,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.w600,
+                        height: 2.8,
+                      ),
                     ),
                   ),
                 ),
@@ -128,9 +131,9 @@ class _SignalInfoState extends State<SignalInfo> {
                   ),
                   const SizedBox(height: 30),
                   Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
+                    padding: const EdgeInsets.only(left: 10.0),
                     child: Container(
-                      width: 195,
+                      width: 173,
                       height: 42,
                       decoration: ShapeDecoration(
                         color: const Color(0xFF53C2FF),
@@ -186,7 +189,7 @@ class _SignalInfoState extends State<SignalInfo> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
-                        'images/TELKOMSEL.png',
+                        'assets/images/Telkomsel.png',
                         width: 50,
                         height: 50,
                       ),
@@ -250,7 +253,7 @@ class _SignalInfoState extends State<SignalInfo> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
-                        'images/INDOSAT.png',
+                        'assets/images/INDOSAT.png',
                         width: 70,
                         height: 50,
                       ),
@@ -313,7 +316,7 @@ class _SignalInfoState extends State<SignalInfo> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
-                        'images/XL.png',
+                        'assets/images/XL.png',
                         width: 35,
                         height: 50,
                       ),
@@ -383,7 +386,7 @@ class _SignalInfoState extends State<SignalInfo> {
               BottomNavigationBarItem(
                 icon: IconButton(
                   icon: Image.asset(
-                    'images/Home.png',
+                    'assets/images/Home.png',
                     width: 58,
                     height: 55,
                   ),
@@ -401,7 +404,7 @@ class _SignalInfoState extends State<SignalInfo> {
               BottomNavigationBarItem(
                 icon: IconButton(
                   icon: Image.asset(
-                    'images/Logbook.png',
+                    'assets/images/Logbook.png',
                     width: 58,
                     height: 55,
                   ),
@@ -418,7 +421,7 @@ class _SignalInfoState extends State<SignalInfo> {
               BottomNavigationBarItem(
                 icon: IconButton(
                   icon: Image.asset(
-                    'images/Add.png',
+                    'assets/images/Add.png',
                     width: 58,
                     height: 55,
                   ),

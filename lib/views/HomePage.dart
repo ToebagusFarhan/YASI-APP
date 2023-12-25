@@ -301,7 +301,7 @@ class _Homeviewstate extends State<HomePage> {
                   ),
                   onPressed: () {
                     print('clicked');
-                    Navigator.pushNamed(context, '/homepage');
+                    Navigator.pushNamed(context, '/routeTest');
                     print('navigator passed');
                   },
                 ),
@@ -315,7 +315,7 @@ class _Homeviewstate extends State<HomePage> {
                     height: 55,
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/signalinfo');
+                    Navigator.pushNamed(context, '/routeTest');
                   },
                 ),
                 label: 'Signal Info',
@@ -328,7 +328,7 @@ class _Homeviewstate extends State<HomePage> {
                     height: 55,
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/adddatas');
+                    Navigator.pushNamed(context, '/addDatas');
                   },
                 ),
                 label: 'Add Data',

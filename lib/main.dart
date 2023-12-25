@@ -5,6 +5,7 @@ import 'package:yasi_app/views/LoginPage.dart';
 import 'package:yasi_app/views/SigninPage.dart';
 import 'package:yasi_app/views/detailinfoPage.dart';
 import 'package:yasi_app/views/UpdateProfilePage.dart';
+import 'package:yasi_app/views/forRouteTesting.dart';
 import 'package:yasi_app/views/signalinfoPage.dart';
 
 void main() {
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
         '/addDatas': (context) => const AddData(),
         '/detailinfo': (context) => const DetailInfo(),
         '/signalinfo': (context) => const SignalInfo(),
-        '/updateprofile': (context) => const UpdateProfile()
+        '/updateprofile': (context) => const UpdateProfile(),
+        '/routeTest': (context) => const RouteTest(),
       },
     );
     // home: HomePage());

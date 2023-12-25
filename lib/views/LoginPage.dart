@@ -116,12 +116,12 @@ class _loginviewstate extends State<loginpage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Dont have an account?',
+                            "Don't have an account?",
                             style: TextStyle(color: Colors.black),
                           ),
                           TextButton(
                               onPressed: () {
-                                print('create account pressed');
+                                Navigator.pushNamed(context, '/regispage');
                               },
                               child: Text(
                                 'Create Account',

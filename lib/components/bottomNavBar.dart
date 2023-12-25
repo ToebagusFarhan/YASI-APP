@@ -58,7 +58,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 ),
                 color: selectedIndex == 1 ? Colors.black : Colors.white,
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/routeTest');
+                  Navigator.pushReplacementNamed(context, '/signalinfo');
                 },
               ),
               label: 'Signal Info',

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yasi_app/views/AddDatas.dart';
 import 'package:yasi_app/views/homePage.dart';
 import 'package:yasi_app/views/LoginPage.dart';
-import 'package:yasi_app/views/SigninPage.dart';
+import 'package:yasi_app/views/regisPage.dart';
 import 'package:yasi_app/views/detailinfoPage.dart';
 import 'package:yasi_app/views/UpdateProfilePage.dart';
 import 'package:yasi_app/views/forRouteTesting.dart';
@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => const loginpage(),
+        '/regispage': (context) => const RegisPage(),
         '/homepage': (context) => const HomePage(),
         '/addDatas': (context) => const AddData(),
         '/detailinfo': (context) => const DetailInfo(),

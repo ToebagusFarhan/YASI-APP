@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:yasi_app/views/LoginPage.dart';
 import 'package:yasi_app/components/TextField.dart';
 
-class SigninPage extends StatefulWidget {
-  const SigninPage({super.key});
+class RegisPage extends StatefulWidget {
+  const RegisPage({super.key});
 
   @override
-  State<SigninPage> createState() => _Signinviewstate();
+  State<RegisPage> createState() => _RegisViewState();
 }
 
-class _Signinviewstate extends State<SigninPage> {
+class _RegisViewState extends State<RegisPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final usernameController = TextEditingController();
@@ -32,10 +32,7 @@ class _Signinviewstate extends State<SigninPage> {
             children: [
               InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => loginpage()),
-                  );
+                  Navigator.pop(context);
                 },
                 child: Container(
                   child: Image.asset(
@@ -121,32 +118,22 @@ class _Signinviewstate extends State<SigninPage> {
                 const SizedBox(height: 40),
 
                 // button create account
-                Container(
-                  width: 276,
-                  height: 42,
-                  decoration: ShapeDecoration(
-                    color: const Color(0xFFFBAA36),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5)),
-                  ),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(builder: (context) => loginpage()),
-                      );
+                ElevatedButton(
+                    onPressed: () {
+                      print('Create Account Button Pressed');
                     },
-                    child: const Center(
-                      child: Text(
-                        "Create Account", //bikin pop up jika account berhasil dibuat
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontFamily: 'Poppins',
-                            fontSize: 16),
-                      ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color.fromRGBO(251, 170, 54, 1),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5)),
+                      minimumSize: const Size(276, 42),
                     ),
-                  ),
-                ),
+                    child: Text('Create Account',
+                        style: const TextStyle(
+                            fontFamily: 'Poppins',
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.white))),
               ],
             ),
           ),

@@ -56,7 +56,7 @@ class _AddDataTestState extends State<AddDataTest> {
                   child: TextFormField(
                     decoration: const InputDecoration(
                       labelText: 'Provinsi',
-                      hintText: 'Masukkan Nama Barang',
+                      hintText: 'Masukkan Provinsi',
                       border: InputBorder.none,
                     ),
                   ),

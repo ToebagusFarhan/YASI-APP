@@ -46,7 +46,6 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 color: selectedIndex == 0 ? Colors.black : Colors.white,
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, '/homepage');
-                  print('home');
                 },
               ),
               label: 'Home',
@@ -60,7 +59,6 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 color: selectedIndex == 1 ? Colors.black : Colors.white,
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, '/routeTest');
-                  print('signal');
                 },
               ),
               label: 'Signal Info',
@@ -74,7 +72,6 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 color: selectedIndex == 2 ? Colors.black : Colors.white,
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, '/addDatas');
-                  print('add');
                 },
               ),
               label: 'Add Data',

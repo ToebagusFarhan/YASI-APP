@@ -1,6 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:yasi_app/controllers/loginController.dart';
+import 'package:yasi_app/controllers/testplace.dart';
 import 'package:yasi_app/views/HomePage.dart';
 import 'package:yasi_app/components/TextField.dart';
 
@@ -12,7 +14,7 @@ class loginpage extends StatefulWidget {
 }
 
 class _loginviewstate extends State<loginpage> {
-  final TextEditingController email = TextEditingController();
+  final TextEditingController user = TextEditingController();
   final TextEditingController password = TextEditingController();
 
   @override
@@ -79,25 +81,17 @@ class _loginviewstate extends State<loginpage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TextFielD(
-                          controller: email,
-                          hintText: 'email',
-                          icon: Icons.email_rounded,
+                          controller: user,
+                          hintText: 'Username',
+                          icon: Icons.person_outline_rounded,
                           obscureText: false),
                       const SizedBox(height: 30),
                       TextFielD(
                           controller: password,
                           hintText: 'Password',
                           icon: Icons.lock_outline_rounded,
-                          obscureText: false),
+                          obscureText: true),
                       const SizedBox(height: 30),
-                      //button login
-                      // TextButton.icon(
-                      //   onPressed: () async {
-                      //     // await LoginUser(context, email.text, password.text);
-                      //   },
-                      //   icon: const Icon(Icons.login),
-                      //   label: const Text('Login'),
-                      // ),
                       Container(
                         width: 276,
                         height: 42,
@@ -106,40 +100,33 @@ class _loginviewstate extends State<loginpage> {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(5)),
                         ),
-                        child: GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => HomePage()),
-                            );
-                          },
-                          child: const Center(
-                            child: Text(
-                              "Login", //bikin pop up jika account berhasil dibuat
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontFamily: 'Poppins',
-                                  fontSize: 16),
-                            ),
-                          ),
-                        ),
+                        child: TextButton.icon(
+                            onPressed: () {
+                              // testLogin(context, user.text, password.text);
+                              Navigator.pushReplacementNamed(
+                                  context, '/homepage');
+                            },
+                            icon: const Icon(Icons.login, color: Colors.white),
+                            label: const Text('Login',
+                                style: TextStyle(color: Colors.white))),
                       ),
                       const SizedBox(height: 10),
                       //text sign in
-                      const Row(
+                      Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             'Dont have an account?',
                             style: TextStyle(color: Colors.black),
                           ),
-                          SizedBox(width: 4),
-                          //pake gesture
-                          Text(
-                            'Create Account',
-                            style: TextStyle(color: Colors.blue),
-                          ),
+                          TextButton(
+                              onPressed: () {
+                                print('create account pressed');
+                              },
+                              child: Text(
+                                'Create Account',
+                                style: TextStyle(color: Colors.white),
+                              )),
                         ],
                       )
                     ],

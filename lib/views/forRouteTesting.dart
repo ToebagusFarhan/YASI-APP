@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:yasi_app/components/BottomNavbar.dart';
+import 'package:yasi_app/controllers/loginController.dart';
+import 'package:yasi_app/models/data.dart';
 
-class RouteTest extends StatelessWidget {
+class RouteTest extends StatefulWidget {
   const RouteTest({super.key});
+
+  @override
+  State<RouteTest> createState() => _RouteTestState();
+}
+
+class _RouteTestState extends State<RouteTest> {
+  late List<User> users;
+  int selectedIndex = 1;
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -21,14 +34,22 @@ class RouteTest extends StatelessWidget {
           const SizedBox(height: 10),
           ElevatedButton.icon(
               onPressed: () {
-                // Navigator.pop(context);
+                Navigator.pop(context);
                 // Navigator.pushNamed(context, '/homepage');
-                Navigator.pushNamed(context, '/addDatas');
+                // Navigator.pushNamed(context, '/addDatas');
               },
-              icon: Icon(Icons.arrow_back),
+              icon: const Icon(Icons.arrow_back),
               label: const Text('Back'))
         ],
       )),
+      bottomNavigationBar: CustomBottomNavigationBar(
+        selectedIndex: selectedIndex,
+        onItemTapped: (int index) {
+          setState(() {
+            selectedIndex = index;
+          });
+        },
+      ),
     );
   }
 }

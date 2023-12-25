@@ -15,7 +15,7 @@ Future<User> fetchUser(String user) async {
       if (data.isNotEmpty) {
         data = data[0];
       } else {
-        throw Exception('User tidak ditemukan! periksa kembali username anda!');
+        throw Exception('User tidak ditemukan! periksa kembali email anda!');
       }
     }
     User users = User.fromJson(data);
@@ -41,14 +41,9 @@ Future<void> loginUser(context, String username, String password) async {
     showLoadingIndicator(context, 'Sedang login...');
     User users = await fetchUser(username);
 
-    if (username == users.username && password == users.password) {
+    if (username == users.email && password == users.password) {
       print('Login successful. Navigating to ProductScreen...');
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const HomeScreen(),
-        ),
-      );
+
       popUp('Selamat datang, $username!');
     } else {
       popUp('User atau Password yang di inputkan salah!');

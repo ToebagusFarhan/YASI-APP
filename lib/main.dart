@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yasi_app/views/AddDatas.dart';
-import 'package:yasi_app/views/HomePage.dart';
+import 'package:yasi_app/views/adddatatest.dart';
+import 'package:yasi_app/views/homePage.dart';
 import 'package:yasi_app/views/LoginPage.dart';
 import 'package:yasi_app/views/SigninPage.dart';
 import 'package:yasi_app/views/detailinfoPage.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
-        '/': (context) => const HomePage(),
+        '/': (context) => const AddDataTest(),
         '/homepage': (context) => const HomePage(),
         '/addDatas': (context) => const AddData(),
         '/detailinfo': (context) => const DetailInfo(),

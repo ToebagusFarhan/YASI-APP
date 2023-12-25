@@ -41,7 +41,7 @@ class _bottombarState extends State<bottombar> {
               BottomNavigationBarItem(
                 icon: IconButton(
                   icon: Image.asset(
-                    'images/Home.png',
+                    'assets/images/Home.png',
                     width: 58,
                     height: 55,
                   ),
@@ -59,7 +59,7 @@ class _bottombarState extends State<bottombar> {
               BottomNavigationBarItem(
                 icon: IconButton(
                   icon: Image.asset(
-                    'images/Logbook.png',
+                    'assets/images/Logbook.png',
                     width: 58,
                     height: 55,
                   ),
@@ -76,7 +76,7 @@ class _bottombarState extends State<bottombar> {
               BottomNavigationBarItem(
                 icon: IconButton(
                   icon: Image.asset(
-                    'images/Add.png',
+                    'assets/images/Add.png',
                     width: 58,
                     height: 55,
                   ),

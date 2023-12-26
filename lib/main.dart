@@ -7,7 +7,7 @@ import 'package:yasi_app/views/regisPage.dart';
 import 'package:yasi_app/views/detailinfoPage.dart';
 import 'package:yasi_app/views/UpdateProfilePage.dart';
 import 'package:yasi_app/testing/forRouteTesting.dart';
-import 'package:yasi_app/views/signalinfoPage.dart';
+import 'package:yasi_app/views/SignalInfoPage.dart';
 
 void main() {
   runApp(const MyApp());

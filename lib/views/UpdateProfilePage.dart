@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:yasi_app/views/HomePage.dart';
-import 'package:yasi_app/views/signalinfoPage.dart';
 
 class UpdateProfile extends StatefulWidget {
   const UpdateProfile({super.key});

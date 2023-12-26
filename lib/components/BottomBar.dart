@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yasi_app/views/signalinfoPage.dart';
+import 'package:yasi_app/views/SignalInfoPage.dart';
 
 class bottombar extends StatefulWidget {
   const bottombar({super.key});

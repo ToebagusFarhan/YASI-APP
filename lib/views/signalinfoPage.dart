@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yasi_app/components/BottomNavbar.dart';
 import 'package:yasi_app/components/InputField.dart';
 import 'package:yasi_app/views/HomePage.dart';
-import 'package:yasi_app/views/LoginPage.dart';
-import 'package:yasi_app/views/addDatas.dart';
+
 import 'package:yasi_app/views/detailinfoPage.dart';
 
 class SignalInfo extends StatefulWidget {

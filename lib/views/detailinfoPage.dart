@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yasi_app/views/signalinfoPage.dart';
+import 'package:yasi_app/views/SignalInfoPage.dart';
 
 class DetailInfo extends StatefulWidget {
   const DetailInfo({super.key});

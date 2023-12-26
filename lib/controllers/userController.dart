@@ -1,28 +1,24 @@
-// import 'dart:convert';
-// import 'package:http/http.dart' as http;
-// import 'package:yasi_app/controllers/function.dart';
+import 'dart:convert';
+// import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:yasi_app/controllers/function.dart';
+import 'package:yasi_app/models/user.dart';
 
-// // Future<void> addUsers(String email, String fullname, String Username,
-// //     String phoneNumber, String password) async {
-// //   final response = await http.post(
-// //     Uri.parse('$url/users'),
-// //     body: jsonEncode({
-// //       'username': Username,
-// //       'password': password,
-// //       'email': email,
-// //       'fullname': fullname,
-// //       'phone': phoneNumber,
-// //     }),
-// //     headers: <String, String>{
-// //       'Content-Type': 'application/json; charset=UTF-8',
-// //     },
-// //   );
+Future<User> getUserByName(String user) async {
+  final response = await http.get(Uri.parse('$url/users/name/$user'));
 
-
-// //   if (response.statusCode == 200) {
-// //     print('User added!');
-// //   } else {
-// //     throw Exception('Failed to add user');
-// //   }
-
-// // }
+  if (response.statusCode == 200) {
+    dynamic data = json.decode(response.body)['data'];
+    if (data is List) {
+      if (data.isNotEmpty) {
+        data = data[0];
+      } else {
+        throw Exception('User tidak ditemukan! periksa kembali username anda!');
+      }
+    }
+    User users = User.fromJson(data);
+    return users;
+  } else {
+    throw Exception('User tidak ditemukan! periksa kembali username anda!');
+  }
+}

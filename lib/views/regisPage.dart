@@ -129,6 +129,19 @@ class _RegisViewState extends State<RegisPage> {
                         );
                         return;
                       }
+                      if (emailController.text.isEmpty ||
+                          fullnameController.text.isEmpty ||
+                          usernameController.text.isEmpty ||
+                          phoneNumberController.text.isEmpty ||
+                          passwordController.text.isEmpty ||
+                          repeatpassController.text.isEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Semua field harus diisi'),
+                          ),
+                        );
+                        return;
+                      }
                       await addUsers(
                           context,
                           emailController.text,

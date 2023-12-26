@@ -23,6 +23,7 @@ class TextFielD extends StatelessWidget {
         child: TextFormField(
           controller: controller,
           obscureText: obscureText,
+          
           decoration: InputDecoration(
               enabledBorder: const OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.transparent),

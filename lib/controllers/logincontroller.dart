@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:yasi_app/controllers/function.dart';
 import 'package:yasi_app/models/user.dart';
+import 'package:yasi_app/views/homePage.dart';
 
 Future<User> fetchUser(String user) async {
   final response = await http.get(Uri.parse('$url/users/name/$user'));
@@ -41,14 +42,14 @@ Future<void> loginUser(context, String username, String password) async {
 
     if (username == users.username && password == users.password) {
       popUp('Login Berhasil, Selamat datang $username');
-      Navigator.pushNamed(context, '/homepage');
-      popUp('Nama Lengkap: ${users.fullname}');
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const HomePage()),
+      );
     } else {
-      Navigator.pop(context);
       popUp('Login Gagal, Periksa kembali username dan password anda!');
     }
   } catch (e) {
-    Navigator.pop(context);
     popUp('error $e');
   }
 }

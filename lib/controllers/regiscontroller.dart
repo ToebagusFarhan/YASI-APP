@@ -1,90 +1,26 @@
-import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
 import 'dart:convert';
-
+import 'package:http/http.dart' as http;
 import 'package:yasi_app/controllers/function.dart';
-import 'package:yasi_app/models/user.dart';
-import 'package:yasi_app/views/LoginPage.dart';
 
-Future<void> registerUser(BuildContext context, User newUser) async {
-  void popUp(String message) {
-    final snackBar = SnackBar(
-      content: Text(message),
-      action: SnackBarAction(
-        label: 'OK',
-        onPressed: () {},
-      ),
-    );
-    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-  }
+Future<void> addUsers(String email, String fullname, String Username,
+    String phoneNumber, String password) async {
+  final response = await http.post(
+    Uri.parse('$url/users'),
+    body: jsonEncode({
+      'username': Username,
+      'password': password,
+      'email': email,
+      'fullname': fullname,
+      'phone': phoneNumber,
+    }),
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+  );
 
-  try {
-    showLoadingIndicator(context, 'Sedang melakukan registrasi...');
-
-    // Check if the email already exists
-    final emailCheckResponse =
-        await http.get(Uri.parse('$url/users/email/${newUser.email}'));
-    if (emailCheckResponse.statusCode == 200) {
-      dynamic emailCheckData = json.decode(emailCheckResponse.body)['data'];
-      if (emailCheckData.isNotEmpty) {
-        if (context.mounted) Navigator.pop(context); // Hide loading indicator
-        popUp('Email ${newUser.email} sudah terdaftar. Gunakan email lain.');
-        return;
-      }
-    } else {
-      if (context.mounted) Navigator.pop(context); // Hide loading indicator
-      popUp('Gagal memeriksa email. Silakan coba lagi.');
-      return;
-    }
-
-    // Check if the username already exists
-    final usernameCheckResponse =
-        await http.get(Uri.parse('$url/users/name/${newUser.username}'));
-    if (usernameCheckResponse.statusCode == 200) {
-      dynamic usernameCheckData =
-          json.decode(usernameCheckResponse.body)['data'];
-      if (usernameCheckData.isNotEmpty) {
-        if (context.mounted) Navigator.pop(context); // Hide loading indicator
-        popUp(
-            'Username ${newUser.username} sudah terdaftar. Gunakan username lain.');
-        return;
-      }
-    } else {
-      if (context.mounted) Navigator.pop(context); // Hide loading indicator
-      popUp('Gagal memeriksa username. Silakan coba lagi.');
-      return;
-    }
-
-    // If both email and username are unique, proceed with registration
-    final registrationResponse = await http.post(
-      Uri.parse('$url/users'),
-      body: {
-        'email': newUser.email,
-        'fullname': newUser.fullname,
-        'username': newUser.username,
-        'password': newUser.password,
-        // 'created_at': newUser.created_at,
-        // 'updated_at': newUser.updated_at,
-      },
-    );
-
-    if (registrationResponse.statusCode == 200) {
-      print('Registration successful. Navigating to ProductScreen...');
-      if (context.mounted) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const loginpage(),
-          ),
-        );
-      }
-      popUp('Registrasi berhasil. Selamat datang, ${newUser.username}!');
-    } else {
-      if (context.mounted) Navigator.pop(context); // Hide loading indicator
-      popUp('Gagal melakukan registrasi. Silakan coba lagi.');
-    }
-  } catch (e) {
-    if (context.mounted) Navigator.pop(context); // Hide loading indicator
-    popUp('Error: $e');
+  if (response.statusCode == 200) {
+    print('User added!');
+  } else {
+    throw Exception('Failed to add user');
   }
 }

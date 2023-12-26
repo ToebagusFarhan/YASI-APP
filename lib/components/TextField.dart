@@ -20,7 +20,7 @@ class TextFielD extends StatelessWidget {
       child: SizedBox(
         width: 276,
         height: 42,
-        child: TextField(
+        child: TextFormField(
           controller: controller,
           obscureText: obscureText,
           decoration: InputDecoration(

@@ -26,10 +26,9 @@ class _UpdateProfileState extends State<UpdateProfile> {
                   padding: const EdgeInsets.only(left: 8.0),
                   child: InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => HomePage()),
-                      );
+                      if (mounted) {
+                        Navigator.pop(context);
+                      }
                     },
                     child: Container(
                       child: Image.asset(
@@ -41,29 +40,6 @@ class _UpdateProfileState extends State<UpdateProfile> {
                   ),
                 ),
               ),
-
-              //tombol 2
-
-              // Container(
-              //   child: Padding(
-              //     padding: const EdgeInsets.only(right: 24.0),
-              //     child: InkWell(
-              //       onTap: () {
-              //         Navigator.push(
-              //           context,
-              //           MaterialPageRoute(builder: (context) => HomePage()),
-              //         );
-              //       },
-              //       child: Container(
-              //         child: Image.asset(
-              //           'assets/images/previous.png',
-              //           width: 30,
-              //           height: 30,
-              //         ),
-              //       ),
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         ),
@@ -419,89 +395,6 @@ class _UpdateProfileState extends State<UpdateProfile> {
                 ),
               ],
             ),
-          ),
-        ),
-      ),
-      bottomNavigationBar: Container(
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black26,
-              blurRadius: 10,
-              spreadRadius: 5,
-            ),
-          ],
-        ),
-        child: ClipRRect(
-          borderRadius: const BorderRadius.only(
-            topLeft: Radius.circular(20.0),
-            topRight: Radius.circular(20.0),
-          ),
-          child: BottomNavigationBar(
-            backgroundColor: const Color(0xFF5170FD),
-            unselectedItemColor: Colors.white,
-            selectedItemColor: Colors.white,
-            // currentIndex: _selectedIndex,
-            // onTap: _onItemTapped,
-            items: [
-              BottomNavigationBarItem(
-                icon: IconButton(
-                  icon: Image.asset(
-                    'images/Home.png',
-                    width: 58,
-                    height: 55,
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              const SignalInfo()), // ke HOME PAGE
-                    );
-                  },
-                ),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: IconButton(
-                  icon: Image.asset(
-                    'images/Logbook.png',
-                    width: 58,
-                    height: 55,
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SignalInfo()),
-                    );
-                  },
-                ),
-                label: 'Signal Info',
-              ),
-              BottomNavigationBarItem(
-                icon: IconButton(
-                  icon: Image.asset(
-                    'images/Add.png',
-                    width: 58,
-                    height: 55,
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) =>
-                              const SignalInfo()), // ke ADD DATA PAGE
-                    );
-                  },
-                ),
-                label: 'Add Data',
-              ),
-            ],
           ),
         ),
       ),

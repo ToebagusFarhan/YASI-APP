@@ -3,6 +3,7 @@ import 'package:yasi_app/components/BottomNavbar.dart';
 import 'package:yasi_app/views/UpdateProfilePage.dart';
 
 class HomePage extends StatefulWidget {
+  
   const HomePage({super.key});
 
   @override
@@ -10,6 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _Homeviewstate extends State<HomePage> {
+
   int _selectedIndex = 0;
 
   //a

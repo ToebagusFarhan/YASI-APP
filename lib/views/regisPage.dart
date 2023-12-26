@@ -2,8 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:yasi_app/controllers/regisController.dart';
-import 'package:yasi_app/controllers/userController.dart';
-import 'package:yasi_app/views/LoginPage.dart';
 import 'package:yasi_app/components/TextField.dart';
 
 class RegisPage extends StatefulWidget {
@@ -132,11 +130,20 @@ class _RegisViewState extends State<RegisPage> {
                         return;
                       }
                       await addUsers(
+                          context,
                           emailController.text,
                           fullnameController.text,
                           usernameController.text,
                           phoneNumberController.text,
                           passwordController.text);
+
+                      //clear textfield
+                      emailController.clear();
+                      fullnameController.clear();
+                      usernameController.clear();
+                      phoneNumberController.clear();
+                      passwordController.clear();
+                      repeatpassController.clear();
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color.fromRGBO(251, 170, 54, 1),

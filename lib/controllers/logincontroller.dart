@@ -21,7 +21,7 @@ Future<User> fetchUser(String user) async {
     User users = User.fromJson(data);
     return users;
   } else {
-    throw Exception('Unable to load data');
+    throw Exception('User tidak ditemukan! periksa kembali username anda!');
   }
 }
 

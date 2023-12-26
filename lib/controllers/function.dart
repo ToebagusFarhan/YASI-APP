@@ -5,7 +5,7 @@ String url = 'http://yasi-web.my.id/api';
 void showLoadingIndicator(BuildContext context, String message) {
   showDialog(
       context: context,
-      builder: (BuildContext) {
+      builder: (BuildContext buildContext) {
         return AlertDialog(
           content: Row(
             mainAxisAlignment: MainAxisAlignment.center,

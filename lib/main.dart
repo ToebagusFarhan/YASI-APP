@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:yasi_app/testing/forCRUDTesting.dart';
 import 'package:yasi_app/views/AddDatas.dart';
 import 'package:yasi_app/views/homePage.dart';
 import 'package:yasi_app/views/LoginPage.dart';
 import 'package:yasi_app/views/regisPage.dart';
 import 'package:yasi_app/views/detailinfoPage.dart';
 import 'package:yasi_app/views/UpdateProfilePage.dart';
-import 'package:yasi_app/views/forRouteTesting.dart';
+import 'package:yasi_app/testing/forRouteTesting.dart';
 import 'package:yasi_app/views/signalinfoPage.dart';
 
 void main() {
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         '/signalinfo': (context) => const SignalInfo(),
         '/updateprofile': (context) => const UpdateProfile(),
         '/routeTest': (context) => const RouteTest(),
+        // '/loginpage': (context) => const loginpage(),
       },
     );
     // home: HomePage());

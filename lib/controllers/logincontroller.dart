@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:yasi_app/controllers/function.dart';
 import 'package:yasi_app/models/user.dart';
-import 'package:yasi_app/views/HomeScreen.dart';
 
 Future<User> fetchUser(String user) async {
   final response = await http.get(Uri.parse('$url/users/name/$user'));
@@ -15,7 +14,7 @@ Future<User> fetchUser(String user) async {
       if (data.isNotEmpty) {
         data = data[0];
       } else {
-        throw Exception('User tidak ditemukan! periksa kembali email anda!');
+        throw Exception('User tidak ditemukan! periksa kembali username anda!');
       }
     }
     User users = User.fromJson(data);
@@ -38,15 +37,16 @@ Future<void> loginUser(context, String username, String password) async {
   }
 
   try {
-    showLoadingIndicator(context, 'Sedang login...');
     User users = await fetchUser(username);
 
-    if (username == users.email && password == users.password) {
-      print('Login successful. Navigating to ProductScreen...');
-
-      popUp('Selamat datang, $username!');
+    if (username == users.username && password == users.password) {
+      Navigator.pop(context);
+      popUp('Login Berhasil, Selamat datang $username');
+      // Navigator.pushReplacementNamed(context, '/homepage');
+      popUp('Nama Lengkap: ${users.fullname}');
     } else {
-      popUp('User atau Password yang di inputkan salah!');
+      Navigator.pop(context);
+      popUp('Login Gagal, Periksa kembali username dan password anda!');
     }
   } catch (e) {
     Navigator.pop(context);

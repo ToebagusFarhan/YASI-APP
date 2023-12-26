@@ -4,8 +4,7 @@ import 'dart:convert';
 
 import 'package:yasi_app/controllers/function.dart';
 import 'package:yasi_app/models/user.dart';
-import 'package:yasi_app/views/homescreen.dart';
-
+import 'package:yasi_app/views/LoginPage.dart';
 
 Future<void> registerUser(BuildContext context, User newUser) async {
   void popUp(String message) {
@@ -28,12 +27,12 @@ Future<void> registerUser(BuildContext context, User newUser) async {
     if (emailCheckResponse.statusCode == 200) {
       dynamic emailCheckData = json.decode(emailCheckResponse.body)['data'];
       if (emailCheckData.isNotEmpty) {
-        Navigator.pop(context); // Hide loading indicator
+        if (context.mounted) Navigator.pop(context); // Hide loading indicator
         popUp('Email ${newUser.email} sudah terdaftar. Gunakan email lain.');
         return;
       }
     } else {
-      Navigator.pop(context); // Hide loading indicator
+      if (context.mounted) Navigator.pop(context); // Hide loading indicator
       popUp('Gagal memeriksa email. Silakan coba lagi.');
       return;
     }
@@ -45,13 +44,13 @@ Future<void> registerUser(BuildContext context, User newUser) async {
       dynamic usernameCheckData =
           json.decode(usernameCheckResponse.body)['data'];
       if (usernameCheckData.isNotEmpty) {
-        Navigator.pop(context); // Hide loading indicator
+        if (context.mounted) Navigator.pop(context); // Hide loading indicator
         popUp(
             'Username ${newUser.username} sudah terdaftar. Gunakan username lain.');
         return;
       }
     } else {
-      Navigator.pop(context); // Hide loading indicator
+      if (context.mounted) Navigator.pop(context); // Hide loading indicator
       popUp('Gagal memeriksa username. Silakan coba lagi.');
       return;
     }
@@ -71,19 +70,21 @@ Future<void> registerUser(BuildContext context, User newUser) async {
 
     if (registrationResponse.statusCode == 200) {
       print('Registration successful. Navigating to ProductScreen...');
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(
-          builder: (context) => const HomeScreen(),
-        ),
-      );
+      if (context.mounted) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const loginpage(),
+          ),
+        );
+      }
       popUp('Registrasi berhasil. Selamat datang, ${newUser.username}!');
     } else {
-      Navigator.pop(context); // Hide loading indicator
+      if (context.mounted) Navigator.pop(context); // Hide loading indicator
       popUp('Gagal melakukan registrasi. Silakan coba lagi.');
     }
   } catch (e) {
-    Navigator.pop(context); // Hide loading indicator
+    if (context.mounted) Navigator.pop(context); // Hide loading indicator
     popUp('Error: $e');
   }
 }

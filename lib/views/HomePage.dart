@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yasi_app/components/BottomNavbar.dart';
-import 'package:yasi_app/views/LoginPage.dart';
 import 'package:yasi_app/views/UpdateProfilePage.dart';
-import 'package:yasi_app/views/addDatas.dart';
-import 'package:yasi_app/views/signalinfoPage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});

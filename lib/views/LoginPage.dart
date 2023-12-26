@@ -2,8 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:yasi_app/controllers/loginController.dart';
-import 'package:yasi_app/controllers/testplace.dart';
-import 'package:yasi_app/views/HomePage.dart';
 import 'package:yasi_app/components/TextField.dart';
 
 class loginpage extends StatefulWidget {
@@ -28,16 +26,13 @@ class _loginviewstate extends State<loginpage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               const SizedBox(height: 10),
-
               //LOGO YASI
               Image.asset(
                 'assets/images/LOGO YASI.png',
                 width: 160,
                 height: 160,
               ),
-
               const SizedBox(height: 10),
-
               //text "YASI"
               const Text(
                 'YASI',
@@ -101,10 +96,23 @@ class _loginviewstate extends State<loginpage> {
                               borderRadius: BorderRadius.circular(5)),
                         ),
                         child: TextButton.icon(
-                            onPressed: () {
-                              // testLogin(context, user.text, password.text);
-                              Navigator.pushReplacementNamed(
-                                  context, '/homepage');
+                            onPressed: () async {
+                              if (user.text.isEmpty || password.text.isEmpty) {
+                                SnackBar snackBar = SnackBar(
+                                  content: Text(
+                                      'Username atau Password tidak boleh kosong!'),
+                                  duration: const Duration(milliseconds: 500),
+                                  action: SnackBarAction(
+                                    label: 'OK',
+                                    onPressed: () {},
+                                  ),
+                                );
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
+                                return;
+                              }
+                              await loginUser(
+                                  context, user.text, password.text);
                             },
                             icon: const Icon(Icons.login, color: Colors.white),
                             label: const Text('Login',

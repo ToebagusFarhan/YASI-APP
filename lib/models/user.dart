@@ -7,7 +7,6 @@ class User {
   final String fullname;
   final String updated_at;
   final String created_at;
-  
 
   //constructor user
   User({
@@ -18,7 +17,6 @@ class User {
     required this.fullname,
     required this.updated_at,
     required this.created_at,
-  
   });
 
   factory User.fromJson(Map<String, dynamic> json) {
@@ -26,8 +24,8 @@ class User {
       id: json['id'] ?? 0,
       username: json['username'] ?? '',
       password: json['password'] ?? '',
-      email: json['level'] ?? '',
-      fullname: json['isActive'] ?? '',
+      email: json['email'] ?? '',
+      fullname: json['fullname'] ?? '',
       updated_at: json['updated_at'] ?? '',
       created_at: json['last_login'] ?? '',
     );

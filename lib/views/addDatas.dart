@@ -108,6 +108,20 @@ class _AddDataState extends State<AddData> {
                     );
                     return;
                   }
+                  //cek apakah rating 1-5
+                  if (int.parse(ratingController.text) > 5 ||
+                      int.parse(ratingController.text) < 1) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: const Text('Rating harus 1-5'),
+                        action: SnackBarAction(
+                          label: 'OK',
+                          onPressed: () {},
+                        ),
+                      ),
+                    );
+                    return;
+                  }
                   //memanggil fungsi addData
                   addData(
                       context,

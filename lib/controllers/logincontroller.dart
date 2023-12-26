@@ -40,9 +40,8 @@ Future<void> loginUser(context, String username, String password) async {
     User users = await fetchUser(username);
 
     if (username == users.username && password == users.password) {
-      Navigator.pop(context);
       popUp('Login Berhasil, Selamat datang $username');
-      // Navigator.pushReplacementNamed(context, '/homepage');
+      Navigator.pushNamed(context, '/homepage');
       popUp('Nama Lengkap: ${users.fullname}');
     } else {
       Navigator.pop(context);

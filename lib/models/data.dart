@@ -1,33 +1,36 @@
-class User {
+class Data {
   // definisikan field dari user
   final int id;
-  final String username;
-  final String password;
-  final String email;
-  final String fullname;
+  final String city_name;
+  final String provider_name;
+  final String signal_stability;
+  final int user_rating;
+  final String comments;
   final String updated_at;
   final String created_at;
 
   //constructor user
-  User({
+  Data({
     required this.id,
-    required this.username,
-    required this.password,
-    required this.email,
-    required this.fullname,
+    required this.city_name,
+    required this.provider_name,
+    required this.signal_stability,
+    required this.user_rating,
+    required this.comments,
     required this.updated_at,
     required this.created_at,
   });
 
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(
+  factory Data.fromJson(Map<String, dynamic> json) {
+    return Data(
       id: json['id'] ?? 0,
-      username: json['username'] ?? '',
-      password: json['password'] ?? '',
-      email: json['level'] ?? '',
-      fullname: json['isActive'] ?? '',
+      city_name: json['city_name'] ?? '',
+      provider_name: json['provider_name'] ?? '',
+      signal_stability: json['signal_stability'] ?? '',
+      user_rating: json['user_rating'] ?? 0,
+      comments: json['comments'] ?? '',
+      created_at: json['created_at'] ?? '',
       updated_at: json['updated_at'] ?? '',
-      created_at: json['last_login'] ?? '',
     );
   }
 }

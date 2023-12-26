@@ -18,13 +18,15 @@ class _Homeviewstate extends State<HomePage> {
         appBar: AppBar(
           backgroundColor: const Color(0xFFD1ECFF),
           centerTitle: true,
-          title: const Text(
-            'Yet Another Signal Info',
-            style: TextStyle(
-                color: Colors.black,
-                fontFamily: 'Poppins',
-                fontSize: 23,
-                fontWeight: FontWeight.w700),
+          title: const SafeArea(
+            child: Text(
+              'Yet Another Signal Info',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontFamily: 'Poppins',
+                  fontSize: 23,
+                  fontWeight: FontWeight.w700),
+            ),
           ),
         ),
         backgroundColor: const Color(0xFFD1ECFF),

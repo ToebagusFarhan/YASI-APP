@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yasi_app/components/BottomNavbar.dart';
 import 'package:yasi_app/models/data.dart';
+import 'package:yasi_app/models/user.dart';
 
 class RouteTest extends StatefulWidget {
   const RouteTest({super.key});

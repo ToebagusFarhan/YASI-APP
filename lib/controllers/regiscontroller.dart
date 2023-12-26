@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:yasi_app/controllers/function.dart';
@@ -30,7 +31,7 @@ Future<void> addUsers(context, String email, String fullname, String username,
     },
   );
   if (response.statusCode == 200) {
-    print('User added!');
+    log('User added!');
     popUp('Registrasi Berhasil, Silahkan Login Wahai $username');
     if (Navigator.canPop(context)) {
       Navigator.pop(context);

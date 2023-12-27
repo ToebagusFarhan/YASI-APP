@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yasi_app/components/InputField.dart';
+import 'package:yasi_app/controllers/dataController.dart';
 import 'package:yasi_app/controllers/userProvider.dart';
 import 'package:yasi_app/testing/GnavTest.dart';
 
@@ -12,6 +13,8 @@ class UpdateProfile extends StatefulWidget {
 }
 
 class _UpdateProfileState extends State<UpdateProfile> {
+  int _selectedIndex = 1;
+
   final TextEditingController NamaController = TextEditingController();
   final TextEditingController EmailController = TextEditingController();
   final TextEditingController NohpController = TextEditingController();
@@ -110,15 +113,15 @@ class _UpdateProfileState extends State<UpdateProfile> {
                     const SizedBox(height: 20),
                     ElevatedButton.icon(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: Color.fromARGB(255, 222, 137, 1),
+                        backgroundColor: Color(0xFFFBAA36),
                         foregroundColor: Colors.white,
                         minimumSize: const Size(150, 50),
                       ),
                       icon: const Icon(Icons.system_update),
                       onPressed: () {
-                        String nama = NamaController.text;
-                        String email = EmailController.text;
-                        String noHp = NohpController.text;
+                        //disininya lupa masukin apa
+                        //addData(context, NamaController, EmailController,
+                        //NohpController);
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text('Profil diperbarui'),

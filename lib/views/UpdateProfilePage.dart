@@ -1,31 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:yasi_app/components/InputField.dart';
 import 'package:yasi_app/controllers/userProvider.dart';
 import 'package:yasi_app/testing/GnavTest.dart';
 
 class UpdateProfile extends StatefulWidget {
-  const UpdateProfile({super.key});
+  const UpdateProfile({Key? key}) : super(key: key);
 
   @override
   State<UpdateProfile> createState() => _UpdateProfileState();
 }
 
 class _UpdateProfileState extends State<UpdateProfile> {
-  int selectedIndex = 3;
+  final TextEditingController NamaController = TextEditingController();
+  final TextEditingController EmailController = TextEditingController();
+  final TextEditingController NohpController = TextEditingController();
+
+  @override
+  void dispose() {
+    NamaController.dispose();
+    EmailController.dispose();
+    NohpController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    //ambil username dari provider
     String username = Provider.of<UserProvider>(context).username;
+    String email = Provider.of<UserProvider>(context).username;
+
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFD1ECFF),
+        backgroundColor: const Color(0xFFD1ECFF),
         elevation: 0,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
-              //tombol 1
               Container(
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8.0),
@@ -57,7 +68,6 @@ class _UpdateProfileState extends State<UpdateProfile> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 const SizedBox(height: 30),
-                //image profile
                 Image.asset(
                   'assets/images/profile.png',
                   width: 105,
@@ -69,13 +79,12 @@ class _UpdateProfileState extends State<UpdateProfile> {
                   style: const TextStyle(fontFamily: 'Poppins'),
                 ),
                 Text(
-                  'adminyasi@gmail.com',
+                  email,
                   style: TextStyle(fontFamily: 'Poppins'),
                 ),
                 const SizedBox(height: 30),
-                //text 'data diri'
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Row(
                       children: [
@@ -87,7 +96,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                               style: TextStyle(
                                   fontFamily: 'Poppins',
                                   fontSize: 18,
-                                  color: Color(0xFFFBAA36)),
+                                  color: const Color(0xFFFBAA36)),
                             ),
                           ),
                         ),
@@ -97,305 +106,64 @@ class _UpdateProfileState extends State<UpdateProfile> {
                     Container(
                       width: 390,
                       height: 254,
-                      decoration: BoxDecoration(color: Color(0xFF5170FD)),
+                      decoration: BoxDecoration(
+                        color: const Color(0xFF5170FD),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
                       child: Center(
                         child: Padding(
                           padding: const EdgeInsets.all(10.0),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              //text field 1
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    width: 235,
-                                    height: 42,
-                                    decoration: ShapeDecoration(
-                                      color: Color(0xFFB0E9FF),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5)),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 10),
-                                      child: Text(
-                                        'Nama',
-                                        style: TextStyle(
-                                          color: Colors.black.withOpacity(0.5),
-                                          fontSize: 15,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w600,
-                                          height: 2.8,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 85,
-                                    height: 42,
-                                    decoration: ShapeDecoration(
-                                      color: Color(0xFFFBAA36),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(15)),
-                                    ),
-                                    child: const Center(
-                                      child: Text(
-                                        "Save",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontFamily: 'Poppins',
-                                            fontSize: 16),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                              InputField(
+                                controller: NamaController,
+                                labelText: 'Nama',
+                                hintText: 'Masukan Nama',
                               ),
-                              const SizedBox(height: 20),
-                              //text field 2
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    width: 235,
-                                    height: 42,
-                                    decoration: ShapeDecoration(
-                                      color: Color(0xFFB0E9FF),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5)),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 10),
-                                      child: Text(
-                                        'Email',
-                                        style: TextStyle(
-                                          color: Colors.black.withOpacity(0.5),
-                                          fontSize: 15,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w600,
-                                          height: 2.8,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 85,
-                                    height: 42,
-                                    decoration: ShapeDecoration(
-                                      color: Color(0xFFFBAA36),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(15)),
-                                    ),
-                                    child: const Center(
-                                      child: Text(
-                                        "Save",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontFamily: 'Poppins',
-                                            fontSize: 16),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                              InputField(
+                                controller: EmailController,
+                                labelText: 'Email',
+                                hintText: 'Masukan Email',
                               ),
-                              const SizedBox(height: 20),
-                              //text field 3
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    width: 235,
-                                    height: 42,
-                                    decoration: ShapeDecoration(
-                                      color: Color(0xFFB0E9FF),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5)),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 10),
-                                      child: Text(
-                                        'No hp',
-                                        style: TextStyle(
-                                          color: Colors.black.withOpacity(0.5),
-                                          fontSize: 15,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w600,
-                                          height: 2.8,
-                                        ),
-                                      ),
-                                    ),
+                              InputField(
+                                controller: NohpController,
+                                labelText: 'No.hp',
+                                hintText: 'Masukan No.hp',
+                              ),
+                              ElevatedButton.icon(
+                                style: ElevatedButton.styleFrom(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
-                                  Container(
-                                    width: 85,
-                                    height: 42,
-                                    decoration: ShapeDecoration(
-                                      color: Color(0xFFFBAA36),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(15)),
+                                  backgroundColor: const Color(0xFFFBAA36),
+                                  foregroundColor: Colors.white,
+                                  padding: const EdgeInsets.symmetric(
+                                      vertical: 3,
+                                      horizontal: 2), // Ubah padding
+                                  // minimumSize: const Size(150, 50), // Hapus minimumSize
+                                ),
+                                icon: const Icon(Icons.system_update),
+                                onPressed: () {
+                                  String nama = NamaController.text;
+                                  String email = EmailController.text;
+                                  String noHp = NohpController.text;
+
+                                  // Lakukan pembaruan profil
+
+                                  ScaffoldMessenger.of(context).showSnackBar(
+                                    const SnackBar(
+                                      content: Text('Profil diperbarui'),
                                     ),
-                                    child: const Center(
-                                      child: Text(
-                                        "Save",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontFamily: 'Poppins',
-                                            fontSize: 16),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                                  );
+                                },
+                                label: const Text('Update'),
                               ),
                             ],
                           ),
                         ),
                       ),
-                    )
-                  ],
-                ),
-                //text 'provider'
-                const SizedBox(height: 30),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 8.0),
-                            child: Text(
-                              'Provider',
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 18,
-                                  color: Color(0xFFFBAA36)),
-                            ),
-                          ),
-                        ),
-                      ],
                     ),
-                    const SizedBox(height: 10),
-                    Container(
-                      width: 390,
-                      height: 184,
-                      decoration: BoxDecoration(color: Color(0xFF5170FD)),
-                      child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              //text field 1
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    width: 235,
-                                    height: 42,
-                                    decoration: ShapeDecoration(
-                                      color: Color(0xFFB0E9FF),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5)),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 10),
-                                      child: Text(
-                                        'Provider',
-                                        style: TextStyle(
-                                          color: Colors.black.withOpacity(0.5),
-                                          fontSize: 15,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w600,
-                                          height: 2.8,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 85,
-                                    height: 42,
-                                    decoration: ShapeDecoration(
-                                      color: Color(0xFFFBAA36),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(15)),
-                                    ),
-                                    child: const Center(
-                                      child: Text(
-                                        "Save",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontFamily: 'Poppins',
-                                            fontSize: 16),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 20),
-                              //text field 2
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    width: 235,
-                                    height: 42,
-                                    decoration: ShapeDecoration(
-                                      color: Color(0xFFB0E9FF),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5)),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(left: 10),
-                                      child: Text(
-                                        'Email',
-                                        style: TextStyle(
-                                          color: Colors.black.withOpacity(0.5),
-                                          fontSize: 15,
-                                          fontFamily: 'Poppins',
-                                          fontWeight: FontWeight.w600,
-                                          height: 2.8,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 85,
-                                    height: 42,
-                                    decoration: ShapeDecoration(
-                                      color: Color(0xFFFBAA36),
-                                      shape: RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(15)),
-                                    ),
-                                    child: const Center(
-                                      child: Text(
-                                        "Save",
-                                        style: TextStyle(
-                                            color: Colors.white,
-                                            fontFamily: 'Poppins',
-                                            fontSize: 16),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    )
                   ],
                 ),
               ],
@@ -403,31 +171,6 @@ class _UpdateProfileState extends State<UpdateProfile> {
           ),
         ),
       ),
-      // bottomNavigationBar: CustomGNav(
-      //   onTabChanged: (index) {
-      //     setState(() {
-      //       selectedIndex = index;
-      //     });
-      //     switch (index) {
-      //       case 0:
-      //         //Navigate to the Home page
-      //         Navigator.pushReplacementNamed(context, '/homepage');
-      //         break;
-      //       case 1:
-      //         // Navigate to the Add Data page
-      //         Navigator.pushNamed(context, '/addDatas');
-      //         break;
-      //       case 2:
-      //         // Navigate to the Search page
-      //         Navigator.pushNamed(context, '/signalinfo');
-      //         break;
-      //       case 3:
-      //         // Navigate to the Profile page
-      //         Navigator.pushNamed(context, '/profile');
-      //         break;
-      //     }
-      //   },
-      // ),
     );
   }
 }

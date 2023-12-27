@@ -5,6 +5,7 @@ import 'package:yasi_app/controllers/userProvider.dart';
 import 'package:yasi_app/models/user.dart';
 import 'package:yasi_app/testing/GnavTest.dart';
 import 'package:yasi_app/views/SignalInfoPage.dart';
+import 'package:yasi_app/views/UpdateProfilePage.dart';
 import 'package:yasi_app/views/addDatas.dart';
 
 class HomePage extends StatefulWidget {
@@ -101,7 +102,10 @@ class _Homeviewstate extends State<HomePage> {
                         // Edit Profile button
                         Expanded(
                           child: OutlinedButton.icon(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const UpdateProfile()));
+                            },
                             icon: const Icon(Icons.edit, color: Colors.white),
                             label: const Text(
                               'EDIT PROFILE',

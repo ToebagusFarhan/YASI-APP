@@ -18,14 +18,48 @@ class _Homeviewstate extends State<HomePage> {
   Widget build(BuildContext context) {
     //ambil username dari provider
     String username = Provider.of<UserProvider>(context).username;
-    return Scaffold(
-        backgroundColor: const Color(0xFFD1ECFF),
-        body: SafeArea(
-          top: true,
-          child: Center(
+    return SafeArea(
+      child: Scaffold(
+          backgroundColor: const Color(0xFFD1ECFF),
+          //appbar
+          appBar: AppBar(
+            toolbarHeight: 100,
+            title: const Text(
+              'Home',
+              style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Poppins',
+                fontSize: 30,
+                fontWeight: FontWeight.w700,
+              ),
+            ),
+            centerTitle: true,
+            flexibleSpace: Container(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(20),
+                  bottomRight: Radius.circular(20),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    color: Color.fromARGB(255, 149, 159, 167),
+                    spreadRadius: 4,
+                    blurRadius: 10,
+                    offset: Offset(0, 5),
+                  ),
+                ],
+                gradient: LinearGradient(
+                  colors: [Color(0xFF5170FD), Color(0xFF5170FD)],
+                  begin: Alignment.bottomCenter,
+                  end: Alignment.topCenter,
+                ),
+              ),
+            ),
+          ),
+          body: Center(
             child: Column(
               children: [
-                const SizedBox(height: 10),
+                const SizedBox(height: 30),
                 Container(
                   padding: const EdgeInsets.all(16.0),
                   width: 299,
@@ -63,14 +97,14 @@ class _Homeviewstate extends State<HomePage> {
               ],
             ),
           ),
-        ),
-        //bottom navigation bar
-        bottomNavigationBar: CustomBottomNavigationBar(
-            selectedIndex: _selectedIndex,
-            onItemTapped: (index) {
-              setState(() {
-                _selectedIndex = index;
-              });
-            }));
+          //bottom navigation bar
+          bottomNavigationBar: CustomBottomNavigationBar(
+              selectedIndex: _selectedIndex,
+              onItemTapped: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              })),
+    );
   }
 }

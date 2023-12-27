@@ -25,19 +25,19 @@ class _UpdateProfileState extends State<UpdateProfile> {
   }
 
   @override
-  @override
   Widget build(BuildContext context) {
     String username = Provider.of<UserProvider>(context).username;
     String email = Provider.of<UserProvider>(context).username;
 
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFFD1ECFF),
+        backgroundColor: Color(0xFFD1ECFF),
         elevation: 0,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Row(
             children: [
+              //tombol 1
               Container(
                 child: Padding(
                   padding: const EdgeInsets.only(left: 8.0),
@@ -65,111 +65,72 @@ class _UpdateProfileState extends State<UpdateProfile> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const SizedBox(height: 30),
-                Image.asset(
-                  'assets/images/profile.png',
-                  width: 105,
-                  height: 105,
-                ),
-                const SizedBox(height: 20),
-                Text(
-                  username.toUpperCase(),
-                  style: const TextStyle(fontFamily: 'Poppins'),
-                ),
-                Text(
-                  email,
-                  style: TextStyle(fontFamily: 'Poppins'),
-                ),
-                const SizedBox(height: 30),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Row(
-                      children: [
-                        Container(
-                          child: Padding(
-                            padding: const EdgeInsets.only(left: 8.0),
-                            child: Text(
-                              'Data Diri',
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 18,
-                                  color: const Color(0xFFFBAA36)),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 10),
-                    Container(
-                      width: 390,
-                      height: 254,
-                      decoration: BoxDecoration(
-                        color: const Color(0xFF5170FD),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(10.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              InputField(
-                                controller: NamaController,
-                                labelText: 'Nama',
-                                hintText: 'masukan nama',
-                              ),
-                              InputField(
-                                controller: EmailController,
-                                labelText: 'Email',
-                                hintText: 'masukan email',
-                              ),
-                              InputField(
-                                controller: NohpController,
-                                labelText: 'No.hp',
-                                hintText: 'masukan no.hp',
-                              ),
-                              ElevatedButton.icon(
-                                style: ElevatedButton.styleFrom(
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                  backgroundColor: const Color(0xFFFBAA36),
-                                  foregroundColor: Colors.white,
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 10,
-                                    horizontal: 20,
-                                  ),
-                                ),
-                                icon: const Icon(Icons.system_update),
-                                onPressed: () {
-                                  String nama = NamaController.text;
-                                  String email = EmailController.text;
-                                  String noHp = NohpController.text;
+            child:
+                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+              const SizedBox(height: 30),
+              //image profile
+              Image.asset(
+                'assets/images/profile.png',
+                width: 105,
+                height: 105,
+              ),
+              const SizedBox(height: 20),
+              Text(
+                username.toUpperCase(),
+                style: const TextStyle(fontFamily: 'Poppins'),
+              ),
+              Text(
+                email,
+                style: TextStyle(fontFamily: 'Poppins'),
+              ),
+              const SizedBox(height: 30),
 
-                                  // Lakukan pembaruan profil
-
-                                  ScaffoldMessenger.of(context).showSnackBar(
-                                    const SnackBar(
-                                      content: Text('Profil diperbarui'),
-                                    ),
-                                  );
-                                },
-                                label: const Text('Update'),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
+              Container(
+                width: 390,
+                height: 350,
+                decoration: BoxDecoration(
+                  color: const Color(0xFF5170FD),
+                  borderRadius: BorderRadius.circular(20),
                 ),
-                const SizedBox(height: 20),
-              ],
-            ),
+                child: SingleChildScrollView(
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  child: Column(children: [
+                    InputField(
+                        controller: NamaController,
+                        labelText: 'Nama',
+                        hintText: 'masukan nama'),
+                    InputField(
+                        controller: EmailController,
+                        labelText: 'Email',
+                        hintText: 'masukan email'),
+                    InputField(
+                        controller: NohpController,
+                        labelText: 'No.hp',
+                        hintText: 'masukan no.hp'),
+                    const SizedBox(height: 20),
+                    ElevatedButton.icon(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color.fromARGB(255, 222, 137, 1),
+                        foregroundColor: Colors.white,
+                        minimumSize: const Size(150, 50),
+                      ),
+                      icon: const Icon(Icons.system_update),
+                      onPressed: () {
+                        String nama = NamaController.text;
+                        String email = EmailController.text;
+                        String noHp = NohpController.text;
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text('Profil diperbarui'),
+                          ),
+                        );
+                      },
+                      label: const Text('Update'),
+                    ),
+                  ]),
+                ),
+              )
+            ]),
           ),
         ),
       ),

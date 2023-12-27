@@ -25,6 +25,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
   }
 
   @override
+  @override
   Widget build(BuildContext context) {
     String username = Provider.of<UserProvider>(context).username;
     String email = Provider.of<UserProvider>(context).username;
@@ -119,17 +120,17 @@ class _UpdateProfileState extends State<UpdateProfile> {
                               InputField(
                                 controller: NamaController,
                                 labelText: 'Nama',
-                                hintText: 'Masukan Nama',
+                                hintText: 'masukan nama',
                               ),
                               InputField(
                                 controller: EmailController,
                                 labelText: 'Email',
-                                hintText: 'Masukan Email',
+                                hintText: 'masukan email',
                               ),
                               InputField(
                                 controller: NohpController,
                                 labelText: 'No.hp',
-                                hintText: 'Masukan No.hp',
+                                hintText: 'masukan no.hp',
                               ),
                               ElevatedButton.icon(
                                 style: ElevatedButton.styleFrom(
@@ -139,9 +140,9 @@ class _UpdateProfileState extends State<UpdateProfile> {
                                   backgroundColor: const Color(0xFFFBAA36),
                                   foregroundColor: Colors.white,
                                   padding: const EdgeInsets.symmetric(
-                                      vertical: 3,
-                                      horizontal: 2), // Ubah padding
-                                  // minimumSize: const Size(150, 50), // Hapus minimumSize
+                                    vertical: 10,
+                                    horizontal: 20,
+                                  ),
                                 ),
                                 icon: const Icon(Icons.system_update),
                                 onPressed: () {
@@ -166,6 +167,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                     ),
                   ],
                 ),
+                const SizedBox(height: 20),
               ],
             ),
           ),

@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yasi_app/controllers/loginController.dart';
 import 'package:yasi_app/components/TextField.dart';
+import 'package:yasi_app/controllers/userController.dart';
 import 'package:yasi_app/controllers/userProvider.dart';
+import 'package:yasi_app/models/user.dart';
 
 class loginpage extends StatefulWidget {
   const loginpage({super.key});
@@ -119,6 +121,10 @@ class _loginviewstate extends State<loginpage> {
                                   currentContext, user.text, password.text);
 
                               //Menyimpan username di provider setelah sukses login
+                              User userData = await getUserByName(user.text);
+                              Provider.of<UserProvider>(currentContext,
+                                      listen: false)
+                                  .setUser(userData);
                               Provider.of<UserProvider>(currentContext,
                                       listen: false)
                                   .setUserName(user.text);

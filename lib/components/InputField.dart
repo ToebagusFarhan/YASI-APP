@@ -10,7 +10,7 @@ class InputField extends StatelessWidget {
   const InputField({
     Key? key,
     this.cardMargin = const EdgeInsets.fromLTRB(30, 20, 30, 5),
-    this.cardColor = const Color.fromRGBO(174, 225, 252, 1),
+    this.cardColor = Colors.white,
     required this.controller,
     required this.labelText,
     required this.hintText,
@@ -24,15 +24,12 @@ class InputField extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
         child: TextFormField(
-          onChanged: (value) {
-            
-          },
+          onChanged: (value) {},
           controller: controller,
           decoration: InputDecoration(
             labelText: labelText,
             hintText: hintText,
             border: InputBorder.none,
-            
           ),
         ),
       ),

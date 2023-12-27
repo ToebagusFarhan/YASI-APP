@@ -113,7 +113,7 @@ class _SignalInfoState extends State<SignalInfo> {
           children: [
             Card(
               margin: const EdgeInsets.fromLTRB(30, 20, 30, 5),
-              color: const Color.fromRGBO(174, 225, 252, 1),
+              color: Colors.white,
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
                 child: TextFormField(
@@ -132,27 +132,39 @@ class _SignalInfoState extends State<SignalInfo> {
               child: ListView.builder(
                 itemCount: filteredSignals.length,
                 itemBuilder: (context, index) {
-                  return Card(
-                    margin: const EdgeInsets.fromLTRB(30, 5, 30, 5),
-                    color: const Color.fromRGBO(174, 225, 252, 1),
-                    child: ListTile(
-                      isThreeLine: true,
-                      onTap: () {
-                        final SnackBar snackBar = SnackBar(
-                          duration: const Duration(milliseconds: 500),
-                          content: const Text(
-                              'Fitur ini belum tersedia untuk saat ini!'),
-                          action: SnackBarAction(
-                            label: 'OK',
-                            onPressed: () {},
-                          ),
-                        );
-                        ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                      },
-                      title: Text(
-                          filteredSignals[index].provider_name.toUpperCase()),
-                      subtitle: Text(
-                        'Kota ${filteredSignals[index].city_name} - Kualitas Sinyal ${filteredSignals[index].signal_stability}',
+                  return Padding(
+                    padding: const EdgeInsets.fromLTRB(30, 0, 30, 13),
+                    child: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.white,
+                          boxShadow: const [
+                            BoxShadow(
+                              color: Color.fromARGB(255, 149, 159, 167),
+                              spreadRadius: 1,
+                              blurRadius: 5,
+                              offset: Offset(0, 3),
+                            ),
+                          ]),
+                      child: ListTile(
+                        isThreeLine: true,
+                        onTap: () {
+                          final SnackBar snackBar = SnackBar(
+                            duration: const Duration(milliseconds: 500),
+                            content: const Text(
+                                'Fitur ini belum tersedia untuk saat ini!'),
+                            action: SnackBarAction(
+                              label: 'OK',
+                              onPressed: () {},
+                            ),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        },
+                        title: Text(
+                            filteredSignals[index].provider_name.toUpperCase()),
+                        subtitle: Text(
+                          'Kota ${filteredSignals[index].city_name} - Kualitas Sinyal ${filteredSignals[index].signal_stability}',
+                        ),
                       ),
                     ),
                   );
@@ -161,7 +173,7 @@ class _SignalInfoState extends State<SignalInfo> {
             ),
           ],
         ),
-    
+
         // Tombol refresh
         floatingActionButton: FloatingActionButton(
           backgroundColor: const Color(0xFF5170FD),

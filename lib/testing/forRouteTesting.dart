@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yasi_app/components/BottomNavbar.dart';
 import 'package:yasi_app/models/data.dart';
 import 'package:yasi_app/models/user.dart';
+import 'package:yasi_app/testing/GnavTest.dart';
 
 class RouteTest extends StatefulWidget {
   const RouteTest({super.key});
@@ -12,7 +13,7 @@ class RouteTest extends StatefulWidget {
 
 class _RouteTestState extends State<RouteTest> {
   late List<User> users;
-  int selectedIndex = 1;
+  int selectedIndex = 4;
 
   @override
   Widget build(BuildContext context) {
@@ -40,14 +41,13 @@ class _RouteTestState extends State<RouteTest> {
               label: const Text('Back'))
         ],
       )),
-      bottomNavigationBar: CustomBottomNavigationBar(
-        selectedIndex: selectedIndex,
-        onItemTapped: (int index) {
-          setState(() {
-            selectedIndex = index;
-          });
-        },
-      ),
+      bottomNavigationBar: CustomGNav(
+          selectedIndex: selectedIndex,
+          onTabChanged: (index) {
+            setState(() {
+              selectedIndex = index;
+            });
+          }),
     );
   }
 }

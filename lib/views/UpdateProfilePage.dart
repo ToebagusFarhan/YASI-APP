@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yasi_app/controllers/userProvider.dart';
+import 'package:yasi_app/testing/GnavTest.dart';
 
 class UpdateProfile extends StatefulWidget {
   const UpdateProfile({super.key});
@@ -10,7 +11,8 @@ class UpdateProfile extends StatefulWidget {
 }
 
 class _UpdateProfileState extends State<UpdateProfile> {
-  
+  int selectedIndex = 3;
+
   @override
   Widget build(BuildContext context) {
     //ambil username dari provider
@@ -401,6 +403,31 @@ class _UpdateProfileState extends State<UpdateProfile> {
           ),
         ),
       ),
+      // bottomNavigationBar: CustomGNav(
+      //   onTabChanged: (index) {
+      //     setState(() {
+      //       selectedIndex = index;
+      //     });
+      //     switch (index) {
+      //       case 0:
+      //         //Navigate to the Home page
+      //         Navigator.pushReplacementNamed(context, '/homepage');
+      //         break;
+      //       case 1:
+      //         // Navigate to the Add Data page
+      //         Navigator.pushNamed(context, '/addDatas');
+      //         break;
+      //       case 2:
+      //         // Navigate to the Search page
+      //         Navigator.pushNamed(context, '/signalinfo');
+      //         break;
+      //       case 3:
+      //         // Navigate to the Profile page
+      //         Navigator.pushNamed(context, '/profile');
+      //         break;
+      //     }
+      //   },
+      // ),
     );
   }
 }

@@ -4,7 +4,9 @@ import 'package:yasi_app/components/InputField.dart';
 import 'package:yasi_app/controllers/dataController.dart';
 import 'package:provider/provider.dart';
 import 'package:yasi_app/controllers/userProvider.dart';
-
+import 'package:yasi_app/testing/GnavTest.dart';
+import 'package:yasi_app/views/SignalInfoPage.dart';
+import 'package:yasi_app/views/homePage.dart';
 
 class AddData extends StatefulWidget {
   const AddData({super.key});
@@ -14,7 +16,7 @@ class AddData extends StatefulWidget {
 }
 
 class _AddDataState extends State<AddData> {
-  int _selectedIndex = 2;
+  int _selectedIndex = 1;
 
   TextEditingController kotaController = TextEditingController();
   TextEditingController providerController = TextEditingController();
@@ -29,6 +31,7 @@ class _AddDataState extends State<AddData> {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         toolbarHeight: 100,
         title: const Text(
           'Add Data',
@@ -99,14 +102,13 @@ class _AddDataState extends State<AddData> {
                 onPressed: () {
                   //memanggil fungsi addData
                   addData(
-                    context,
-                    kotaController,
-                    providerController,
-                    kualitasController,
-                    ratingController,
-                    komenController,
-                    username
-                  );
+                      context,
+                      kotaController,
+                      providerController,
+                      kualitasController,
+                      ratingController,
+                      komenController,
+                      username);
                 },
                 label: const Text('Submit'),
               ),
@@ -114,12 +116,28 @@ class _AddDataState extends State<AddData> {
           ),
         ),
       ),
-      bottomNavigationBar: CustomBottomNavigationBar(
+      bottomNavigationBar: CustomGNav(
         selectedIndex: _selectedIndex,
-        onItemTapped: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
+        onTabChanged: (index) {
+          switch (index) {
+            case 0:
+              //Navigate to the Home page
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const HomePage()));
+              break;
+            case 1:
+              print('Print $index');
+              break;
+            case 2:
+              // Navigate to the Search page
+              Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => const SignalInfo()));
+              break;
+            case 3:
+              // Navigate to the Profile page
+              Navigator.pushReplacementNamed(context, '/profile');
+              break;
+          }
         },
       ),
     );

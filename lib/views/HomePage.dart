@@ -3,6 +3,9 @@ import 'package:provider/provider.dart';
 import 'package:yasi_app/components/BottomNavbar.dart';
 import 'package:yasi_app/controllers/userProvider.dart';
 import 'package:yasi_app/models/user.dart';
+import 'package:yasi_app/testing/GnavTest.dart';
+import 'package:yasi_app/views/SignalInfoPage.dart';
+import 'package:yasi_app/views/addDatas.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -121,6 +124,94 @@ class _Homeviewstate extends State<HomePage> {
                   children: [
                     Expanded(
                       child: Container(
+                          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                          width: 100,
+                          height: 100,
+                          decoration: ShapeDecoration(
+                            color: const Color(0xFFFBAA36),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(15),
+                            ),
+                          ),
+                          child: TextButton(
+                              onPressed: () {
+                                final SnackBar snackBar = SnackBar(
+                                  content: const Text('Coming Soon!'),
+                                  duration: Duration(milliseconds: 500),
+                                  action: SnackBarAction(
+                                    label: 'Close',
+                                    onPressed: () {},
+                                  ),
+                                );
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
+                              },
+                              child: const Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.network_cell_rounded,
+                                    color: Colors.white,
+                                  ),
+                                  Text(
+                                    'Sumber Daya Jaringan',
+                                    style: TextStyle(color: Colors.white),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                ],
+                              ))),
+                    ),
+                    const SizedBox(width: 10), // Spacer(
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                        width: 100,
+                        height: 100,
+                        decoration: ShapeDecoration(
+                          color: const Color(0xFFFBAA36),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                        ),
+                        child: TextButton(
+                            onPressed: () {
+                              final SnackBar snackBar = SnackBar(
+                                content: const Text('Coming Soon!'),
+                                duration: Duration(milliseconds: 500),
+                                action: SnackBarAction(
+                                  label: 'Close',
+                                  onPressed: () {},
+                                ),
+                              );
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(snackBar);
+                            },
+                            child: const Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.map_rounded,
+                                  color: Colors.white,
+                                ),
+                                Text(
+                                  'Pemetaan Sinyal',
+                                  style: TextStyle(color: Colors.white),
+                                  textAlign: TextAlign.center,
+                                ),
+                              ],
+                            )),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(30, 20, 30, 0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Expanded(
+                      child: Container(
                           padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
                           width: 100,
                           height: 100,
@@ -132,18 +223,28 @@ class _Homeviewstate extends State<HomePage> {
                           ),
                           child: TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/addDatas');
+                                final SnackBar snackBar = SnackBar(
+                                  content: const Text('Coming Soon!'),
+                                  duration: Duration(milliseconds: 500),
+                                  action: SnackBarAction(
+                                    label: 'Close',
+                                    onPressed: () {},
+                                  ),
+                                );
+                                ScaffoldMessenger.of(context)
+                                    .showSnackBar(snackBar);
                               },
                               child: const Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Icon(
-                                    Icons.add,
+                                    Icons.monitor_rounded,
                                     color: Colors.white,
                                   ),
                                   Text(
-                                    'Tambah Data',
+                                    'Bandiwth Monitor',
                                     style: TextStyle(color: Colors.white),
+                                    textAlign: TextAlign.center,
                                   ),
                                 ],
                               ))),
@@ -151,7 +252,7 @@ class _Homeviewstate extends State<HomePage> {
                     const SizedBox(width: 10), // Spacer(
                     Expanded(
                       child: Container(
-                        padding: const EdgeInsets.fromLTRB(30, 0, 30, 0),
+                        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                         width: 100,
                         height: 100,
                         decoration: ShapeDecoration(
@@ -162,18 +263,28 @@ class _Homeviewstate extends State<HomePage> {
                         ),
                         child: TextButton(
                             onPressed: () {
-                              Navigator.pushNamed(context, '/signalinfo');
+                              final SnackBar snackBar = SnackBar(
+                                content: const Text('Coming Soon!'),
+                                duration: Duration(milliseconds: 500),
+                                action: SnackBarAction(
+                                  label: 'Close',
+                                  onPressed: () {},
+                                ),
+                              );
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(snackBar);
                             },
                             child: const Column(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Icon(
-                                  Icons.search,
+                                  Icons.speed_rounded,
                                   color: Colors.white,
                                 ),
                                 Text(
-                                  'Lihat Data',
+                                  'Speedtest',
                                   style: TextStyle(color: Colors.white),
+                                  textAlign: TextAlign.center,
                                 ),
                               ],
                             )),
@@ -186,14 +297,31 @@ class _Homeviewstate extends State<HomePage> {
           ),
         ),
         // Bottom navigation bar
-        // bottomNavigationBar: CustomBottomNavigationBar(
-        //   selectedIndex: _selectedIndex,
-        //   onItemTapped: (index) {
-        //     setState(() {
-        //       _selectedIndex = index;
-        //     });
-        //   },
-        // ),
+        bottomNavigationBar: CustomGNav(
+          selectedIndex: _selectedIndex,
+          onTabChanged: (index) {
+            switch (index) {
+              case 0:
+                //Navigate to the Home page
+                print('Print $index');
+                break;
+              case 1:
+                // Navigate to the Add Data page
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const AddData()));
+                break;
+              case 2:
+                // Navigate to the Search page
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const SignalInfo()));
+                break;
+              case 3:
+                // Navigate to the Profile page
+                Navigator.pushReplacementNamed(context, '/profile');
+                break;
+            }
+          },
+        ),
       ),
     );
   }

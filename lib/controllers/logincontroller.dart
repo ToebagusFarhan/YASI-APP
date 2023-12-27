@@ -29,6 +29,7 @@ Future<void> loginUser(context, String username, String password) async {
   void popUp(String message) {
     final snackBar = SnackBar(
       content: Text(message),
+      duration: Duration(milliseconds: 500),
       action: SnackBarAction(
         label: 'OK',
         onPressed: () {},

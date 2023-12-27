@@ -5,6 +5,9 @@ import 'package:yasi_app/components/BottomNavbar.dart';
 import 'package:yasi_app/controllers/dataController.dart';
 import 'package:yasi_app/controllers/function.dart';
 import 'package:yasi_app/models/data.dart';
+import 'package:yasi_app/testing/GnavTest.dart';
+import 'package:yasi_app/views/addDatas.dart';
+import 'package:yasi_app/views/homePage.dart';
 
 class SignalInfo extends StatefulWidget {
   const SignalInfo({Key? key}) : super(key: key);
@@ -17,7 +20,7 @@ class _SignalInfoState extends State<SignalInfo> {
   final kotaController = TextEditingController();
   late List<Data> signals;
   late List<Data> filteredSignals;
-  int selectedIndex = 1;
+  int selectedIndex = 2;
 
   @override
   void initState() {
@@ -75,6 +78,7 @@ class _SignalInfoState extends State<SignalInfo> {
       child: Scaffold(
         backgroundColor: const Color(0xFFD2EDFF),
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           toolbarHeight: 100,
           title: const Text(
             'Informasi Sinyal',
@@ -195,12 +199,32 @@ class _SignalInfoState extends State<SignalInfo> {
           child: const Icon(Icons.refresh),
         ),
         // Bottom Navbar
-        bottomNavigationBar: CustomBottomNavigationBar(
+        bottomNavigationBar: CustomGNav(
           selectedIndex: selectedIndex,
-          onItemTapped: (index) {
+          onTabChanged: (index) {
             setState(() {
               selectedIndex = index;
             });
+            switch (index) {
+              case 0:
+                //Navigate to the Home page
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const HomePage()));
+                break;
+              case 1:
+                // Navigate to the Add Data page
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const AddData()));
+                break;
+              case 2:
+                // Navigate to the Search page
+                print('Print $index');
+                break;
+              case 3:
+                // Navigate to the Profile page
+                Navigator.pushNamed(context, '/profile');
+                break;
+            }
           },
         ),
       ),

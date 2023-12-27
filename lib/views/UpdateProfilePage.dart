@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:yasi_app/controllers/userProvider.dart';
 
 class UpdateProfile extends StatefulWidget {
   const UpdateProfile({super.key});
@@ -8,8 +10,11 @@ class UpdateProfile extends StatefulWidget {
 }
 
 class _UpdateProfileState extends State<UpdateProfile> {
+  
   @override
   Widget build(BuildContext context) {
+    //ambil username dari provider
+    String username = Provider.of<UserProvider>(context).username;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFFD1ECFF),
@@ -58,8 +63,8 @@ class _UpdateProfileState extends State<UpdateProfile> {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  'Nama user',
-                  style: TextStyle(fontFamily: 'Poppins'),
+                  username.toUpperCase(),
+                  style: const TextStyle(fontFamily: 'Poppins'),
                 ),
                 Text(
                   'adminyasi@gmail.com',

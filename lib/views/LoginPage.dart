@@ -1,8 +1,10 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:yasi_app/controllers/loginController.dart';
 import 'package:yasi_app/components/TextField.dart';
+import 'package:yasi_app/controllers/userProvider.dart';
 
 class loginpage extends StatefulWidget {
   const loginpage({super.key});
@@ -111,8 +113,15 @@ class _loginviewstate extends State<loginpage> {
                                     .showSnackBar(snackBar);
                                 return;
                               }
+                              BuildContext currentContext =
+                                  context; //tangkap context supaya tidak error
                               await loginUser(
-                                  context, user.text, password.text);
+                                  currentContext, user.text, password.text);
+
+                              //Menyimpan username di provider setelah sukses login
+                              Provider.of<UserProvider>(currentContext,
+                                      listen: false)
+                                  .setUserName(user.text);
                             },
                             icon: const Icon(Icons.login, color: Colors.white),
                             label: const Text('Login',

@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:yasi_app/components/BottomNavbar.dart';
 import 'package:yasi_app/components/InputField.dart';
 import 'package:yasi_app/controllers/dataController.dart';
+import 'package:provider/provider.dart';
+import 'package:yasi_app/controllers/userProvider.dart';
+
 
 class AddData extends StatefulWidget {
   const AddData({super.key});
@@ -21,6 +24,9 @@ class _AddDataState extends State<AddData> {
 
   @override
   Widget build(BuildContext context) {
+    //ambil username dari provider
+    String username = Provider.of<UserProvider>(context).username;
+
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 100,
@@ -91,52 +97,16 @@ class _AddDataState extends State<AddData> {
                 ),
                 icon: const Icon(Icons.add),
                 onPressed: () {
-                  //cek apakah ada field yang kosong
-                  if (kotaController.text.isEmpty ||
-                      providerController.text.isEmpty ||
-                      kualitasController.text.isEmpty ||
-                      ratingController.text.isEmpty ||
-                      komenController.text.isEmpty) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: const Text('Mohon isi semua field'),
-                        action: SnackBarAction(
-                          label: 'OK',
-                          onPressed: () {},
-                        ),
-                      ),
-                    );
-                    return;
-                  }
-                  //cek apakah rating 1-5
-                  if (int.parse(ratingController.text) > 5 ||
-                      int.parse(ratingController.text) < 1) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        content: const Text('Rating harus 1-5'),
-                        action: SnackBarAction(
-                          label: 'OK',
-                          onPressed: () {},
-                        ),
-                      ),
-                    );
-                    return;
-                  }
                   //memanggil fungsi addData
                   addData(
-                      context,
-                      kotaController.text,
-                      providerController.text,
-                      kualitasController.text,
-                      int.parse(ratingController.text),
-                      komenController.text);
-
-                  //membersihkan field
-                  kotaController.clear();
-                  providerController.clear();
-                  kualitasController.clear();
-                  ratingController.clear();
-                  komenController.clear();
+                    context,
+                    kotaController,
+                    providerController,
+                    kualitasController,
+                    ratingController,
+                    komenController,
+                    username
+                  );
                 },
                 label: const Text('Submit'),
               ),

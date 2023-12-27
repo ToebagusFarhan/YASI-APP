@@ -22,3 +22,14 @@ Future<User> getUserByName(String user) async {
     throw Exception('User tidak ditemukan! periksa kembali username anda!');
   }
 }
+
+
+Future<int> getUserIdByUsername(String username) async {
+  try {
+    User user = await getUserByName(username);
+    return user.id;
+  } catch (e) {
+    // Handle the exception or rethrow it based on your requirements
+    rethrow;
+  }
+}

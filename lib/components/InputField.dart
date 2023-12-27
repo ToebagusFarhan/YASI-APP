@@ -24,11 +24,15 @@ class InputField extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.fromLTRB(10, 0, 0, 0),
         child: TextFormField(
+          onChanged: (value) {
+            
+          },
           controller: controller,
           decoration: InputDecoration(
             labelText: labelText,
             hintText: hintText,
             border: InputBorder.none,
+            
           ),
         ),
       ),

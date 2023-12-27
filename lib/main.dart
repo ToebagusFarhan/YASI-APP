@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:yasi_app/controllers/userProvider.dart';
 // import 'package:yasi_app/testing/forCRUDTesting.dart';
 import 'package:yasi_app/views/AddDatas.dart';
 import 'package:yasi_app/views/homePage.dart';
@@ -10,7 +12,10 @@ import 'package:yasi_app/testing/forRouteTesting.dart';
 import 'package:yasi_app/views/SignalInfoPage.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ChangeNotifierProvider(
+    create: (context) => UserProvider(),
+    child: const MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {

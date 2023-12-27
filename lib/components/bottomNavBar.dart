@@ -1,6 +1,9 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:yasi_app/views/SignalInfoPage.dart';
+import 'package:yasi_app/views/addDatas.dart';
+import 'package:yasi_app/views/homePage.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   final int selectedIndex;
@@ -45,7 +48,11 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 ),
                 color: selectedIndex == 0 ? Colors.black : Colors.white,
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/homepage');
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (context) => const HomePage(),
+                    ),
+                  );
                 },
               ),
               label: 'Home',
@@ -58,7 +65,11 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 ),
                 color: selectedIndex == 1 ? Colors.black : Colors.white,
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/signalinfo');
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (context) => const SignalInfo(),
+                    ),
+                  );
                 },
               ),
               label: 'Signal Info',
@@ -71,7 +82,11 @@ class CustomBottomNavigationBar extends StatelessWidget {
                 ),
                 color: selectedIndex == 2 ? Colors.black : Colors.white,
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/addDatas');
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (context) => const AddData(),
+                    ),
+                  );
                 },
               ),
               label: 'Add Data',

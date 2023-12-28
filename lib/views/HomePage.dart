@@ -321,7 +321,8 @@ class _Homeviewstate extends State<HomePage> {
                 break;
               case 3:
                 // Navigate to the Profile page
-                Navigator.pushReplacementNamed(context, '/profile');
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const UpdateProfile()));
                 break;
             }
           },

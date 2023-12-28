@@ -18,7 +18,7 @@ class UserProvider with ChangeNotifier {
       password: '',
       email: '',
       fullname: '',
-      phonenumber: '',
+      phone: '',
       updated_at: '',
       created_at: '');
 

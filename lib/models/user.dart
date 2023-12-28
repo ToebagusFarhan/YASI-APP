@@ -5,7 +5,7 @@ class User {
   final String password;
   final String email;
   final String fullname;
-  final String phonenumber;
+  final String phone;
   final String updated_at;
   final String created_at;
 
@@ -16,7 +16,7 @@ class User {
     required this.password,
     required this.email,
     required this.fullname,
-    required this.phonenumber,
+    required this.phone,
     required this.updated_at,
     required this.created_at,
   });
@@ -28,7 +28,7 @@ class User {
       password: json['password'] ?? '',
       email: json['email'] ?? '',
       fullname: json['fullname'] ?? '',
-      phonenumber: json['nohp'] ?? '',
+      phone: json['phone'] ?? '',
       updated_at: json['updated_at'] ?? '',
       created_at: json['last_login'] ?? '',
     );

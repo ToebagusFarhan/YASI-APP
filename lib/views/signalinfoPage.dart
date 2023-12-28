@@ -6,6 +6,7 @@ import 'package:yasi_app/controllers/dataController.dart';
 import 'package:yasi_app/controllers/function.dart';
 import 'package:yasi_app/models/data.dart';
 import 'package:yasi_app/testing/GnavTest.dart';
+import 'package:yasi_app/views/UpdateProfilePage.dart';
 import 'package:yasi_app/views/addDatas.dart';
 import 'package:yasi_app/views/homePage.dart';
 
@@ -123,6 +124,7 @@ class _SignalInfoState extends State<SignalInfo> {
                 child: TextFormField(
                   controller: kotaController,
                   decoration: const InputDecoration(
+
                     labelText: 'Masukkan Filter Kota',
                     hintText: 'Masukkan Berdasarkan Kota',
                     border: InputBorder.none,
@@ -222,7 +224,8 @@ class _SignalInfoState extends State<SignalInfo> {
                 break;
               case 3:
                 // Navigate to the Profile page
-                Navigator.pushNamed(context, '/profile');
+               Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const UpdateProfile()));
                 break;
             }
           },

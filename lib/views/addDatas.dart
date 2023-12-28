@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:yasi_app/controllers/userProvider.dart';
 import 'package:yasi_app/testing/GnavTest.dart';
 import 'package:yasi_app/views/SignalInfoPage.dart';
+import 'package:yasi_app/views/UpdateProfilePage.dart';
 import 'package:yasi_app/views/homePage.dart';
 
 class AddData extends StatefulWidget {
@@ -135,7 +136,8 @@ class _AddDataState extends State<AddData> {
               break;
             case 3:
               // Navigate to the Profile page
-              Navigator.pushReplacementNamed(context, '/profile');
+              Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => const UpdateProfile()));
               break;
           }
         },

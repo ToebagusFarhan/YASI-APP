@@ -28,4 +28,11 @@ class UserProvider with ChangeNotifier {
     _user = user;
     notifyListeners();
   }
+  
+  void setProfile(String fullname, String email, String phone) {
+    _user.fullname = fullname;
+    _user.email = email;
+    _user.phone = phone;
+    notifyListeners();
+  }
 }

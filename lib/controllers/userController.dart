@@ -2,7 +2,9 @@ import 'dart:convert';
 // import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 import 'package:yasi_app/controllers/function.dart';
+import 'package:yasi_app/controllers/userProvider.dart';
 import 'package:yasi_app/models/user.dart';
 
 Future<User> getUserByName(String user) async {
@@ -105,6 +107,8 @@ Future<void> updateUser(
 
     if (response.statusCode == 200) {
       print('User updated.');
+      // ignore: use_build_context_synchronously
+      Provider.of<UserProvider>(context, listen: false).setProfile(fullname, email, phone);
     } else {
       throw Exception('Failed to update user. ${response.body}');
     }

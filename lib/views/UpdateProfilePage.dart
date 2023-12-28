@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:yasi_app/components/InputField.dart';
-import 'package:yasi_app/controllers/dataController.dart';
+//import 'package:yasi_app/controllers/dataController.dart';
 import 'package:yasi_app/controllers/userController.dart';
 import 'package:yasi_app/controllers/userProvider.dart';
 import 'package:yasi_app/models/user.dart';
 import 'package:yasi_app/testing/GnavTest.dart';
+//import 'package:yasi_app/views/LoginPage.dart';
 import 'package:yasi_app/views/SignalInfoPage.dart';
 import 'package:yasi_app/views/addDatas.dart';
 import 'package:yasi_app/views/homePage.dart';
@@ -34,7 +35,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
 
   @override
   Widget build(BuildContext context) {
-    String username = Provider.of<UserProvider>(context).username;
+    //String username = Provider.of<UserProvider>(context).username;
     User user = Provider.of<UserProvider>(context).user;
     return SafeArea(
       child: Scaffold(
@@ -52,7 +53,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
               ),
               const SizedBox(height: 20),
               Text(
-                username.toUpperCase(),
+                user.fullname.toUpperCase(),
                 style: const TextStyle(fontFamily: 'Poppins'),
               ),
               Text(
@@ -83,16 +84,17 @@ class _UpdateProfileState extends State<UpdateProfile> {
                   const SizedBox(height: 20),
                   InputField(
                       controller: NamaController,
-                      labelText: user.fullname,
-                      hintText: 'masukan nama'),
+                      labelText: 'Nama',
+                      hintText: user.fullname),
                   InputField(
-                      controller: EmailController,
-                      labelText: user.email,
-                      hintText: 'masukan email'),
+                    controller: EmailController,
+                    labelText: 'E-Mail',
+                    hintText: user.email,
+                  ),
                   InputField(
                       controller: NohpController,
-                      labelText: user.phone.toString(),
-                      hintText: 'masukan no.hp'),
+                      labelText: 'Nomor Handphone',
+                      hintText: user.phone.toString()),
                   const SizedBox(height: 20),
                   ElevatedButton.icon(
                     style: ElevatedButton.styleFrom(

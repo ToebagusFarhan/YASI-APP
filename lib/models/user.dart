@@ -3,9 +3,9 @@ class User {
   final int id;
   final String username;
   final String password;
-  final String email;
-  final String fullname;
-  final String phone;
+  String email;
+  String fullname;
+  String phone;
   final String updated_at;
   final String created_at;
 

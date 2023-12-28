@@ -113,6 +113,7 @@ class _AddDataState extends State<AddData> {
                 },
                 label: const Text('Submit'),
               ),
+              SizedBox(height: 30),
             ],
           ),
         ),

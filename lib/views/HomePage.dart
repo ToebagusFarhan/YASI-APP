@@ -132,7 +132,7 @@ class _Homeviewstate extends State<HomePage> {
                           width: 100,
                           height: 100,
                           decoration: ShapeDecoration(
-                            color: const Color(0xFFFBAA36),
+                            color: Color.fromARGB(255, 63, 169, 255),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),
@@ -172,7 +172,7 @@ class _Homeviewstate extends State<HomePage> {
                         width: 100,
                         height: 100,
                         decoration: ShapeDecoration(
-                          color: const Color(0xFFFBAA36),
+                          color: Color.fromARGB(255, 63, 169, 255),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
                           ),
@@ -220,7 +220,7 @@ class _Homeviewstate extends State<HomePage> {
                           width: 100,
                           height: 100,
                           decoration: ShapeDecoration(
-                            color: const Color(0xFFFBAA36),
+                            color: Color.fromARGB(255, 63, 169, 255),
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15),
                             ),
@@ -260,7 +260,7 @@ class _Homeviewstate extends State<HomePage> {
                         width: 100,
                         height: 100,
                         decoration: ShapeDecoration(
-                          color: const Color(0xFFFBAA36),
+                          color: Color.fromARGB(255, 63, 169, 255),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(15),
                           ),

@@ -36,42 +36,10 @@ class _UpdateProfileState extends State<UpdateProfile> {
   Widget build(BuildContext context) {
     String username = Provider.of<UserProvider>(context).username;
     User user = Provider.of<UserProvider>(context).user;
-    return Scaffold(
-      appBar: AppBar(
-        automaticallyImplyLeading: false,
-        backgroundColor: Color(0xFFD1ECFF),
-        elevation: 0,
-        leading: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Row(
-            children: [
-              //tombol 1
-              Container(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8.0),
-                  child: InkWell(
-                    onTap: () {
-                      if (mounted) {
-                        Navigator.pop(context);
-                      }
-                    },
-                    child: Container(
-                      child: Image.asset(
-                        'assets/images/previous.png',
-                        width: 30,
-                        height: 30,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-      backgroundColor: const Color(0xFFD1ECFF),
-      body: SafeArea(
-        child: SingleChildScrollView(
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: const Color(0xFFD1ECFF),
+        body: SingleChildScrollView(
           child: Center(
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -143,7 +111,6 @@ class _UpdateProfileState extends State<UpdateProfile> {
                           user.fullname,
                           user.email,
                           user.phone.toString());
-                      
                     },
                     label: const Text('Update'),
                   ),
@@ -152,32 +119,32 @@ class _UpdateProfileState extends State<UpdateProfile> {
             ]),
           ),
         ),
-      ),
-      bottomNavigationBar: CustomGNav(
-        selectedIndex: _selectedIndex,
-        onTabChanged: (index) {
-          switch (index) {
-            case 0:
-              //Navigate to the Home page
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const HomePage()));
-              break;
-            case 1:
-              // Navigate to the Add Data page
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const AddData()));
-              break;
-            case 2:
-              // Navigate to the Search page
-              Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => const SignalInfo()));
-              break;
-            case 3:
-              // Navigate to the Profile page
-              print('Print $index');
-              break;
-          }
-        },
+        bottomNavigationBar: CustomGNav(
+          selectedIndex: _selectedIndex,
+          onTabChanged: (index) {
+            switch (index) {
+              case 0:
+                //Navigate to the Home page
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const HomePage()));
+                break;
+              case 1:
+                // Navigate to the Add Data page
+                Navigator.of(context).push(
+                    MaterialPageRoute(builder: (context) => const AddData()));
+                break;
+              case 2:
+                // Navigate to the Search page
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const SignalInfo()));
+                break;
+              case 3:
+                // Navigate to the Profile page
+                print('Print $index');
+                break;
+            }
+          },
+        ),
       ),
     );
   }

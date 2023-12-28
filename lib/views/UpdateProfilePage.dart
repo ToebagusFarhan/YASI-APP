@@ -64,8 +64,10 @@ class _UpdateProfileState extends State<UpdateProfile> {
 
               Container(
                 width: 400,
-                height: 500,
-                decoration: const BoxDecoration(
+                height: 420,
+                decoration: ShapeDecoration(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
                   color: Color(0xFF5170FD),
                 ),
                 child: Column(children: [
@@ -117,7 +119,8 @@ class _UpdateProfileState extends State<UpdateProfile> {
                     label: const Text('Update'),
                   ),
                 ]),
-              )
+              ),
+              SizedBox(height: 30),
             ]),
           ),
         ),

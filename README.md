@@ -3,7 +3,7 @@
 <p align="center">
 <a href="https://opensource.org/licenses/MIT"><img src="https://github.com/ToebagusFarhan/YASI-WEB/assets/128769878/7df521f2-c9be-41d2-8071-922445a43adc" width="128" alt="License"></a>
 <a href="http://yasi-web.my.id"><img src="https://github.com/ToebagusFarhan/YASI-WEB/assets/128769878/4d081620-0a1e-492f-b68a-10f653146dfc" width="128"alt="License"></a>
-<a href="http://yasi-web.my.id"><img src="https://github.com/ToebagusFarhan/YASI-WEB/assets/128769878/8f724c7f-1ff1-4e70-ad3e-947d94875e8a" width="128"alt="License"></a>
+<a href="https://github.com/ToebagusFarhan/YASI-APP/releases/download/V.1.0.0/app-x86_64-release.apk"><img src="https://github.com/ToebagusFarhan/YASI-WEB/assets/128769878/8f724c7f-1ff1-4e70-ad3e-947d94875e8a" width="128"alt="License"></a>
 </p>
 
 
